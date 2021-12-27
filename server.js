@@ -11,7 +11,7 @@ const d = new Date();
 
 var tabtab = {
   tipo: "tabgiza",
-  tabid:[ 'dinami','SDR123','Claudia','Barradas'],
+  tabid:['SDR123','Claudia','Barradas'],
   cosul1:['SDR100','Paulo','Fialho',8,2,3,5,3,2,2,0,0,0,0,0,0],
   cosul2:['GHJ323','Susana','Hortinha',2,2,3,5,3,2,2,0,0,0,0,0,0],
   cosul3:['MFK958','Andre','Vieira',2,2,3,5,3,2,2,0,0,0,0,0,0],
@@ -233,7 +233,7 @@ wss.on('connection', (ws) => {
           break;
            }
            switch(lg.username) {
-            case tabtab.tabid[1]:{
+            case tabtab.tabid[0]:{
              
               lg.Valido="1";
               console.log(lg.Valido)
@@ -432,5 +432,7 @@ wss.on('connection', (ws) => {
   });
 })
 
+
+// SQL SERVER
 
 
