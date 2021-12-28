@@ -489,10 +489,7 @@ con.connect(function(err) {
      console.log(tabtab)
     } );
   
-    con.end(function (err, result) {
-      if (err) throw err;
-      console.log(" Conexao terminada");
-    });
+
 
 
 });
