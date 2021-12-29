@@ -103,9 +103,7 @@ var con = mysql.createConnection({
   password: "A95856762a!",
   database: "drimtec_otlo"
 });
-setInterval(myTimer, 20000);
 
-function myTimer() {
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
@@ -150,7 +148,7 @@ con.connect(function(err) {
 
 
 });
-}
+
 
 
 
@@ -357,7 +355,11 @@ wss.on('connection', (ws) => {
             
 
               
-               
+                sql = "UPDATE tabtab SET numero1 = 12 WHERE pos = 3";
+                con.query(sql, function (err, result) {
+                  if (err) throw err;
+                  console.log(result.affectedRows + " record(s) updated");
+                })
 
 
 
