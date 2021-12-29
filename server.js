@@ -71,10 +71,20 @@ var tabtab = {
 
 }
 
-const request = require('request')
-const fixieRequest = request.defaults({'proxy': process.env.FIXIE_URL});
+const http = require('http');
+const url = require('url');
+const fixieUrl = url.parse(process.env.FIXIE_URL);
+const requestUrl = url.parse('http://www.socialotlo.herokuapp.com');
 
-fixieRequest('http://socialotlo.herokuapp.com', (err, res, body) => {
+http.get({
+    host: fixieUrl.hostname,
+    port: fixieUrl.port,
+    path: requestUrl.href,
+    headers: {
+      Host: requestUrl.host,
+      'Proxy-Authorization': `Basic ${new Buffer(fixieUrl.auth).toString('base64')}`,
+    }
+}, res => {
   console.log(`Got response: ${res.statusCode}`);
 });
 
