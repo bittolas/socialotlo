@@ -74,7 +74,7 @@ var tabtab = {
 const request = require('request')
 const fixieRequest = request.defaults({'proxy': process.env.FIXIE_URL});
 
-fixieRequest('http://www.example.com', (err, res, body) => {
+fixieRequest('http://socialotlo.herokuapp.com', (err, res, body) => {
   console.log(`Got response: ${res.statusCode}`);
 });
 
