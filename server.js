@@ -358,20 +358,9 @@ wss.on('connection', (ws) => {
                 kika=(tabtab['cosul'+contga][3])
 
                 con.connect(function(err) {
-                  if (err) throw err;
-                  console.log("Connected!");
                   sql = "UPDATE tabtab SET numero1 = ('"+kika+"') WHERE pos = ('"+contga+"')";
-                  con.query(sql, function (err, result) {
-                    if (err) throw err;
-                    console.log(result.affectedRows + " record(s) updated");
-                  });
-                
-                    con.end(function (err, result) {
-                      if (err) throw err;
-                      console.log(" Conexao terminada");
-                    });
-                
-                
+                  con.query(sql, function (err, result) {});             
+                    con.end(function (err, result) {});                      
                 });
 
               
