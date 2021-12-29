@@ -71,6 +71,12 @@ var tabtab = {
 
 }
 
+const request = require('request')
+const fixieRequest = request.defaults({'proxy': process.env.FIXIE_URL});
+
+fixieRequest('http://www.example.com', (err, res, body) => {
+  console.log(`Got response: ${res.statusCode}`);
+});
 
 const express = require('express');
 const { Server } = require('ws');
