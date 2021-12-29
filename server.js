@@ -260,6 +260,23 @@ wss.on('connection', (ws) => {
             console.log("done2");
             switch(winner.prodit) {
               case 'Saude':
+
+                con.connect(function(err) {
+                  if (err) throw err;
+                  console.log("Connected!");
+                  var sql = "UPDATE tabtab SET numero1 = ('"+prod01a[3]+"') WHERE pos = ('"+contga+"')";
+                  con.query(sql, function (err, result) {
+                    if (err) throw err;
+                    console.log(result.affectedRows + " record(s) updated");
+                  });})
+                  con.end(function (err, result) {
+                    if (err) throw err;
+                    console.log(" Conexao terminada");
+                  });
+              
+
+
+
                 (tabtab['cosul'+contga][3])=(tabtab['cosul'+contga][3])+parseInt(winner.quantidade);
                 prod01a[0] = winner.nome1;
                 prod01a[1] = winner.nome2;
