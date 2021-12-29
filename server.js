@@ -70,7 +70,7 @@ var tabtab = {
     
 
 }
-
+var sql;
 
 const express = require('express');
 const { Server } = require('ws');
@@ -91,6 +91,85 @@ function myTimer() {
   wss.clients.forEach((client) =>  client.send(JSON.stringify(tabtab)));
  
 }
+
+// SQL SERVER
+
+var mysql = require('mysql');
+const { json } = require('express/lib/response');
+
+var con = mysql.createConnection({
+  host: "185.90.59.52",
+  user: "drimtec_paulo",
+  password: "A95856762a!",
+  database: "drimtec_otlo"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+
+
+
+
+
+  con.query("SELECT * FROM tabtab", function (err, result, fields) {
+  do {
+    if (err) throw err;  
+    var batata = JSON.stringify(result); 
+    let tcham = JSON.parse(batata);
+    console.log(tcham[cont6].texto1)
+    tabtab['cosul'+cont7][0] = tcham[cont6].texto1
+    tabtab['cosul'+cont7][1] = tcham[cont6].texto2
+    tabtab['cosul'+cont7][2] = tcham[cont6].texto3
+    tabtab['cosul'+cont7][3] = tcham[cont6].numero1
+    tabtab['cosul'+cont7][4] = tcham[cont6].numero2
+    tabtab['cosul'+cont7][5] = tcham[cont6].numero3
+    tabtab['cosul'+cont7][6] = tcham[cont6].numero4
+    tabtab['cosul'+cont7][7] = tcham[cont6].numero5
+    tabtab['cosul'+cont7][8] = tcham[cont6].numero6
+    tabtab['cosul'+cont7][9] = tcham[cont6].numero7
+    tabtab['cosul'+cont7][10] = tcham[cont6].numero8
+    tabtab['cosul'+cont7][11] = tcham[cont6].numero9
+    tabtab['cosul'+cont7][12] = tcham[cont6].numero10
+    tabtab['cosul'+cont7][13] = tcham[cont6].numero11
+    tabtab['cosul'+cont7][14] = tcham[cont6].numero12
+    tabtab['cosul'+cont7][15] = tcham[cont6].numero13
+    tabtab['cosul'+cont7][16] = tcham[cont6].numero14
+    tabtab['cosul'+cont7][17] = tcham[cont6].numero15
+    tabtab['cosul'+cont7][18] = tcham[cont6].texto4
+    cont6 +=1;
+    cont7 +=1;  
+     }
+     while (cont6<17);
+     console.log(tabtab)
+    } );
+  
+    con.end(function (err, result) {
+      if (err) throw err;
+      console.log(" Conexao terminada");
+    });
+
+
+});
+
+
+
+
+// SQL SERVER
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -278,21 +357,25 @@ wss.on('connection', (ws) => {
                 tabtab.prod04=prod04a;
                 
 
-
-
                 con.connect(function(err) {
                   if (err) throw err;
                   console.log("Connected!");
-                  var sql = "UPDATE tabtab SET numero1 = ('"+prod01a[3]+"') WHERE pos = ('"+contga+"')";
+                  sql = "UPDATE tabtab SET numero1 = ('"+prods01a[3]+"') WHERE pos = ('"+contaga+"')";
                   con.query(sql, function (err, result) {
                     if (err) throw err;
                     console.log(result.affectedRows + " record(s) updated");
-                  });})
-                  con.end(function (err, result) {
-                    if (err) throw err;
-                    console.log(" Conexao terminada");
                   });
+                
+                    con.end(function (err, result) {
+                      if (err) throw err;
+                      console.log(" Conexao terminada");
+                    });
+                
+                
+                });
+
               
+                wss.clients.forEach((client) =>  client.send("BD");
 
 
 
@@ -457,65 +540,3 @@ wss.on('connection', (ws) => {
 
 
 
-// SQL SERVER
-
-var mysql = require('mysql');
-const { json } = require('express/lib/response');
-
-var con = mysql.createConnection({
-  host: "185.90.59.52",
-  user: "drimtec_paulo",
-  password: "A95856762a!",
-  database: "drimtec_otlo"
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-  var sql = "UPDATE tabtab SET numero1 = 3 WHERE pos = 4";
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log(result.affectedRows + " record(s) updated");
-  });
-
-
-
-  con.query("SELECT * FROM tabtab", function (err, result, fields) {
-  do {
-    if (err) throw err;  
-    var batata = JSON.stringify(result); 
-    let tcham = JSON.parse(batata);
-    console.log(tcham[cont6].texto1)
-    tabtab['cosul'+cont7][0] = tcham[cont6].texto1
-    tabtab['cosul'+cont7][1] = tcham[cont6].texto2
-    tabtab['cosul'+cont7][2] = tcham[cont6].texto3
-    tabtab['cosul'+cont7][3] = tcham[cont6].numero1
-    tabtab['cosul'+cont7][4] = tcham[cont6].numero2
-    tabtab['cosul'+cont7][5] = tcham[cont6].numero3
-    tabtab['cosul'+cont7][6] = tcham[cont6].numero4
-    tabtab['cosul'+cont7][7] = tcham[cont6].numero5
-    tabtab['cosul'+cont7][8] = tcham[cont6].numero6
-    tabtab['cosul'+cont7][9] = tcham[cont6].numero7
-    tabtab['cosul'+cont7][10] = tcham[cont6].numero8
-    tabtab['cosul'+cont7][11] = tcham[cont6].numero9
-    tabtab['cosul'+cont7][12] = tcham[cont6].numero10
-    tabtab['cosul'+cont7][13] = tcham[cont6].numero11
-    tabtab['cosul'+cont7][14] = tcham[cont6].numero12
-    tabtab['cosul'+cont7][15] = tcham[cont6].numero13
-    tabtab['cosul'+cont7][16] = tcham[cont6].numero14
-    tabtab['cosul'+cont7][17] = tcham[cont6].numero15
-    tabtab['cosul'+cont7][18] = tcham[cont6].texto4
-    cont6 +=1;
-    cont7 +=1;  
-     }
-     while (cont6<17);
-     console.log(tabtab)
-    } );
-  
-    con.end(function (err, result) {
-      if (err) throw err;
-      console.log(" Conexao terminada");
-    });
-
-
-});
