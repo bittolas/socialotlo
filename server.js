@@ -451,7 +451,7 @@ var con = mysql.createConnection({
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-  var sql = "UPDATE tabtab SET numero1 = 1 WHERE pos = 3";
+  var sql = "UPDATE tabtab SET numero1 = 3 WHERE pos = 4";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log(result.affectedRows + " record(s) updated");
