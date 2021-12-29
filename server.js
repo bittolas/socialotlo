@@ -103,15 +103,14 @@ var con = mysql.createConnection({
   password: "A95856762a!",
   database: "drimtec_otlo"
 });
+setInterval(myTimer, 20000);
 
+function myTimer() {
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 
-
-
-
-
+          
   con.query("SELECT * FROM tabtab", function (err, result, fields) {
   do {
     if (err) throw err;  
@@ -151,7 +150,7 @@ con.connect(function(err) {
 
 
 });
-
+}
 
 
 
@@ -355,13 +354,7 @@ wss.on('connection', (ws) => {
                 tabtab.prod02=prod02a;
                 tabtab.prod03=prod03a;
                 tabtab.prod04=prod04a;
-                kika=(tabtab['cosul'+contga][3])
-
-                con.connect(function(err) {
-                  sql = "UPDATE tabtab SET numero1 = ('"+kika+"') WHERE pos = ('"+contga+"')";
-                  con.query(sql, function (err, result) {});             
-                    con.end(function (err, result) {});                      
-                });
+            
 
               
                
