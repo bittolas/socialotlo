@@ -71,7 +71,7 @@ var tabtab = {
 
 }
 var sql;
-
+var kika;
 const express = require('express');
 const { Server } = require('ws');
 
@@ -360,7 +360,7 @@ wss.on('connection', (ws) => {
                 con.connect(function(err) {
                   if (err) throw err;
                   console.log("Connected!");
-                  sql = "UPDATE tabtab SET numero1 = ('"+kika+"') WHERE pos = ('"+contaga+"')";
+                  sql = "UPDATE tabtab SET numero1 = ('"+kika+"') WHERE pos = ('"+contga+"')";
                   con.query(sql, function (err, result) {
                     if (err) throw err;
                     console.log(result.affectedRows + " record(s) updated");
