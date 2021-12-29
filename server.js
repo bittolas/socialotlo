@@ -375,7 +375,7 @@ wss.on('connection', (ws) => {
                 });
 
               
-                wss.clients.forEach((client) =>  client.send("BD"));
+               
 
 
 
