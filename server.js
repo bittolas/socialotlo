@@ -355,12 +355,12 @@ wss.on('connection', (ws) => {
                 tabtab.prod02=prod02a;
                 tabtab.prod03=prod03a;
                 tabtab.prod04=prod04a;
-                
+                kika=(tabtab['cosul'+contga][3])
 
                 con.connect(function(err) {
                   if (err) throw err;
                   console.log("Connected!");
-                  sql = "UPDATE tabtab SET numero1 = ('"+prods01a[3]+"') WHERE pos = ('"+contaga+"')";
+                  sql = "UPDATE tabtab SET numero1 = ('"+kika+"') WHERE pos = ('"+contaga+"')";
                   con.query(sql, function (err, result) {
                     if (err) throw err;
                     console.log(result.affectedRows + " record(s) updated");
