@@ -402,7 +402,7 @@ wss.on('connection', (ws) => {
             switch(winner.prodit) {
               case 'Saude':
 
-          
+                kika=(tabtab['cosul'+contga][3])+parseInt(winner.quantidade);
                 (tabtab['cosul'+contga][3])=(tabtab['cosul'+contga][3])+parseInt(winner.quantidade);
                 prod01a[0] = winner.nome1;
                 prod01a[1] = winner.nome2;
@@ -418,7 +418,7 @@ wss.on('connection', (ws) => {
                 tabtab.prod03=prod03a;
                 tabtab.prod04=prod04a;
                 
-                kika=(tabtab['cosul'+contga][3]);
+                
                 
                 sql = "UPDATE tabtab SET numero1 = ('"+kika+"') WHERE pos = ('"+contgaw+"')";
                 con.query(sql, function (err, result) {
@@ -448,9 +448,10 @@ wss.on('connection', (ws) => {
 
                 console.log("done3");
                   if (winner.segme == 1){
+                    kika=(tabtab['cosul'+contga][9])+1;
                     (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])+1;
-                    kika=(tabtab['cosul'+contga][9]);
-                    sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
+                    
+                    sql = "UPDATE tabtab SET numero7 = ('"+kika+"') WHERE pos = ('"+contgaw+"')";
                     con.query(sql, function (err, result) {
                       if (err) throw err;
                   
