@@ -419,7 +419,7 @@ wss.on('connection', (ws) => {
                 tabtab.prod04=prod04a;
             
 
-                sql = "UPDATE tabtab SET numero1 = 9 WHERE pos = ('"+contgaw+"')";
+                sql = "UPDATE tabtab SET numero1 = ('"+(tabtab['cosul'+contga][3])+"') WHERE pos = ('"+contgaw+"')";
                 con.query(sql, function (err, result) {
                   if (err) throw err;
               
@@ -443,10 +443,36 @@ wss.on('connection', (ws) => {
                 });
            
 
-
+               
 
                 console.log("done3");
-                  if (winner.segme == 1){(tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])+1;}
+                  if (winner.segme == 1){
+                    (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])+1;
+
+                    sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
+                    con.query(sql, function (err, result) {
+                      if (err) throw err;
+                  
+                      console.log(result.affectedRows + " record(s) updated");
+                  
+                      con.end(function (err, result) {
+                        if (err) throw err;
+                        console.log(" Conexao terminada");
+                    
+                      });
+                      con = mysql.createConnection({
+                        host: "185.90.59.52",
+                        user: "drimtec_paulo",
+                        password: "A95856762a!",
+                        database: "drimtec_otlo",
+                        debug: false,
+                       
+                      } );
+                  
+                  
+                    });
+                
+                }
                 
               
              break;
@@ -577,6 +603,7 @@ wss.on('connection', (ws) => {
       }
     }
     contga+=1;  
+    contgaw+=2;
   }while (contga<15);
     
       
