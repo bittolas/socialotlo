@@ -444,14 +444,14 @@ wss.on('connection', (ws) => {
                 });
            
 
-               
+                
 
                 console.log("done3");
                   if (winner.segme == 1){
                    
                     (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])+1;
                     
-                    sql = "UPDATE tabtab SET numero7 = 2 WHERE pos = ('"+contgaw+"')";
+                    sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
                     con.query(sql, function (err, result) {
                       if (err) throw err;
                   
