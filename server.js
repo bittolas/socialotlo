@@ -402,7 +402,7 @@ wss.on('connection', (ws) => {
             switch(winner.prodit) {
               case 'Saude':
 
-                kika=(tabtab['cosul'+contga][3])+parseInt(winner.quantidade);
+   
                 (tabtab['cosul'+contga][3])=(tabtab['cosul'+contga][3])+parseInt(winner.quantidade);
                 prod01a[0] = winner.nome1;
                 prod01a[1] = winner.nome2;
@@ -448,7 +448,7 @@ wss.on('connection', (ws) => {
 
                 console.log("done3");
                   if (winner.segme == 1){
-                    kika=(tabtab['cosul'+contga][9])+1;
+                   
                     (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])+1;
                     
                     sql = "UPDATE tabtab SET numero7 = 2 WHERE pos = ('"+contgaw+"')";
@@ -605,7 +605,7 @@ wss.on('connection', (ws) => {
       }
     }
     contga+=1;  
-    contgaw+=2;
+    contgaw+=1;
   }while (contga<15);
     
       
