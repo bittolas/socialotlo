@@ -478,6 +478,7 @@ wss.on('connection', (ws) => {
                 
               
              break;
+             
              case 'PVF':
               (tabtab['cosul'+contga][4])=(tabtab['cosul'+contga][4])+parseInt(winner.quantidade);
               prod01a[0] = winner.nome1;
