@@ -220,28 +220,7 @@ con.query("SELECT * FROM tabtab", function (err, result, fields) {
 
 
 
-  sql = "UPDATE tabtab SET numero1 = 1 WHERE pos = 3";
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-
-    console.log(result.affectedRows + " record(s) updated");
-
-    con.end(function (err, result) {
-      if (err) throw err;
-      console.log(" Conexao terminada");
-  
-    });
-    con = mysql.createConnection({
-      host: "185.90.59.52",
-      user: "drimtec_paulo",
-      password: "A95856762a!",
-      database: "drimtec_otlo",
-      debug: false,
-     
-    } );
-
-
-  });
+ 
 
 
 
@@ -407,7 +386,8 @@ wss.on('connection', (ws) => {
       break;
     
       case 'winner':
-        let contga=2;
+        let contgaw=2;
+        let contga=1;
         let prod01a = ['nome1','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
   let prod02a = ['nome2','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
   let prod03a = ['nome3','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
@@ -439,7 +419,7 @@ wss.on('connection', (ws) => {
                 tabtab.prod04=prod04a;
             
 
-                sql = "UPDATE tabtab SET numero1 = 7 WHERE pos = ('"+contga+"')";
+                sql = "UPDATE tabtab SET numero1 = 9 WHERE pos = ('"+contgaw+"')";
                 con.query(sql, function (err, result) {
                   if (err) throw err;
               
