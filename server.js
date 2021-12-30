@@ -417,9 +417,10 @@ wss.on('connection', (ws) => {
                 tabtab.prod02=prod02a;
                 tabtab.prod03=prod03a;
                 tabtab.prod04=prod04a;
-            
-
-                sql = "UPDATE tabtab SET numero1 = ('"+(tabtab['cosul'+contga][3])+"') WHERE pos = ('"+contgaw+"')";
+                
+                kika=(tabtab['cosul'+contga][3]);
+                
+                sql = "UPDATE tabtab SET numero1 = ('"+kika+"') WHERE pos = ('"+contgaw+"')";
                 con.query(sql, function (err, result) {
                   if (err) throw err;
               
@@ -448,7 +449,7 @@ wss.on('connection', (ws) => {
                 console.log("done3");
                   if (winner.segme == 1){
                     (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])+1;
-
+                    kika=(tabtab['cosul'+contga][9]);
                     sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
                     con.query(sql, function (err, result) {
                       if (err) throw err;
