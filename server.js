@@ -420,7 +420,7 @@ wss.on('connection', (ws) => {
                 
                 
                 
-                sql = "UPDATE tabtab SET numero1 = ('"+kika+"') WHERE pos = ('"+contgaw+"')";
+                sql = "UPDATE tabtab SET numero1 = 11 WHERE pos = ('"+contgaw+"')";
                 con.query(sql, function (err, result) {
                   if (err) throw err;
               
@@ -451,7 +451,7 @@ wss.on('connection', (ws) => {
                     kika=(tabtab['cosul'+contga][9])+1;
                     (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])+1;
                     
-                    sql = "UPDATE tabtab SET numero7 = ('"+kika+"') WHERE pos = ('"+contgaw+"')";
+                    sql = "UPDATE tabtab SET numero7 = 2 WHERE pos = ('"+contgaw+"')";
                     con.query(sql, function (err, result) {
                       if (err) throw err;
                   
