@@ -494,7 +494,7 @@ wss.on('connection', (ws) => {
               tabtab.prod03=prod03a;
               tabtab.prod04=prod04a;
               
-              sql = "UPDATE tabtab SET numero1 = ('"+(tabtab['cosul'+contga][4])+"') WHERE pos = ('"+contgaw+"')";
+              sql = "UPDATE tabtab SET numero2 = ('"+(tabtab['cosul'+contga][4])+"') WHERE pos = ('"+contgaw+"')";
               con.query(sql, function (err, result) {
                 if (err) throw err;
             
@@ -563,7 +563,7 @@ wss.on('connection', (ws) => {
             tabtab.prod03=prod03a;
             tabtab.prod04=prod04a;
             
-            sql = "UPDATE tabtab SET numero1 = ('"+(tabtab['cosul'+contga][6])+"') WHERE pos = ('"+contgaw+"')";
+            sql = "UPDATE tabtab SET numero4 = ('"+(tabtab['cosul'+contga][6])+"') WHERE pos = ('"+contgaw+"')";
             con.query(sql, function (err, result) {
               if (err) throw err;
           
@@ -633,7 +633,7 @@ wss.on('connection', (ws) => {
           tabtab.prod03=prod03a;
           tabtab.prod04=prod04a;
           
-          sql = "UPDATE tabtab SET numero1 = ('"+(tabtab['cosul'+contga][7])+"') WHERE pos = ('"+contgaw+"')";
+          sql = "UPDATE tabtab SET numero5 = ('"+(tabtab['cosul'+contga][7])+"') WHERE pos = ('"+contgaw+"')";
           con.query(sql, function (err, result) {
             if (err) throw err;
         
@@ -703,7 +703,7 @@ wss.on('connection', (ws) => {
         tabtab.prod02=prod02a;
         tabtab.prod03=prod03a;
         tabtab.prod04=prod04a;
-        sql = "UPDATE tabtab SET numero1 = ('"+(tabtab['cosul'+contga][8])+"') WHERE pos = ('"+contgaw+"')";
+        sql = "UPDATE tabtab SET numero6 = ('"+(tabtab['cosul'+contga][8])+"') WHERE pos = ('"+contgaw+"')";
                 con.query(sql, function (err, result) {
                   if (err) throw err;
               
@@ -774,7 +774,7 @@ wss.on('connection', (ws) => {
       tabtab.prod03=prod03a;
       tabtab.prod04=prod04a;
       
-      sql = "UPDATE tabtab SET numero1 = ('"+(tabtab['cosul'+contga][5])+"') WHERE pos = ('"+contgaw+"')";
+      sql = "UPDATE tabtab SET numero3 = ('"+(tabtab['cosul'+contga][5])+"') WHERE pos = ('"+contgaw+"')";
                 con.query(sql, function (err, result) {
                   if (err) throw err;
               
