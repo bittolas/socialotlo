@@ -420,7 +420,7 @@ wss.on('connection', (ws) => {
                 
                 
                 
-                sql = "UPDATE tabtab SET numero1 = 11 WHERE pos = ('"+contgaw+"')";
+                sql = "UPDATE tabtab SET numero1 = ('"+(tabtab['cosul'+contga][3])+"') WHERE pos = ('"+contgaw+"')";
                 con.query(sql, function (err, result) {
                   if (err) throw err;
               
