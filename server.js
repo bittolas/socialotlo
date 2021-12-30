@@ -478,75 +478,74 @@ wss.on('connection', (ws) => {
                 
               
              break;
-             
-             case 'PVF':
-              (tabtab['cosul'+contga][4])=(tabtab['cosul'+contga][4])+parseInt(winner.quantidade);
-              prod01a[0] = winner.nome1;
-              prod01a[1] = winner.nome2;
-              prod01a[2] = winner.cosul;
-              prod01a[3] = winner.quantidade;
-              prod01a[4] = winner.hora;
-              prod01a[6] = winner.prodit;
-              prod02a=tabtab.prod01;
-              prod03a=tabtab.prod02;
-              prod04a=tabtab.prod03;
-              tabtab.prod01=prod01a;
-              tabtab.prod02=prod02a;
-              tabtab.prod03=prod03a;
-              tabtab.prod04=prod04a;
-              
-              sql = "UPDATE tabtab SET numero2 = ('"+(tabtab['cosul'+contga][4])+"') WHERE pos = ('"+contgaw+"')";
-              con.query(sql, function (err, result) {
-                if (err) throw err;
-            
-                console.log(result.affectedRows + " record(s) updated");
-            
-                con.end(function (err, result) {
-                  if (err) throw err;
-                  console.log(" Conexao terminada");
-              
-                });
-                con = mysql.createConnection({
-                  host: "185.90.59.52",
-                  user: "drimtec_paulo",
-                  password: "A95856762a!",
-                  database: "drimtec_otlo",
-                  debug: false,
-                 
-                } );
-            
-            
-              });
 
-              console.log("done3");
-                if (winner.segme == 1){
-                  (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])+1;
-                  sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
-                  con.query(sql, function (err, result) {
+            case 'PVF':
+        (tabtab['cosul'+contga][4])=(tabtab['cosul'+contga][4])+parseInt(winner.quantidade);
+        prod01a[0] = winner.nome1;
+        prod01a[1] = winner.nome2;
+        prod01a[2] = winner.cosul;
+        prod01a[3] = winner.quantidade;
+        prod01a[4] = winner.hora;
+        prod01a[6] = winner.prodit;
+        prod02a=tabtab.prod01;
+        prod03a=tabtab.prod02;
+        prod04a=tabtab.prod03;
+        tabtab.prod01=prod01a;
+        tabtab.prod02=prod02a;
+        tabtab.prod03=prod03a;
+        tabtab.prod04=prod04a;
+        sql = "UPDATE tabtab SET numero2 = ('"+(tabtab['cosul'+contga][4])+"') WHERE pos = ('"+contgaw+"')";
+                con.query(sql, function (err, result) {
+                  if (err) throw err;
+              
+                  console.log(result.affectedRows + " record(s) updated");
+              
+                  con.end(function (err, result) {
                     if (err) throw err;
-                
-                    console.log(result.affectedRows + " record(s) updated");
-                
-                    con.end(function (err, result) {
-                      if (err) throw err;
-                      console.log(" Conexao terminada");
-                  
-                    });
-                    con = mysql.createConnection({
-                      host: "185.90.59.52",
-                      user: "drimtec_paulo",
-                      password: "A95856762a!",
-                      database: "drimtec_otlo",
-                      debug: false,
-                     
-                    } );
-                
+                    console.log(" Conexao terminada");
                 
                   });
-                }
+                  con = mysql.createConnection({
+                    host: "185.90.59.52",
+                    user: "drimtec_paulo",
+                    password: "A95856762a!",
+                    database: "drimtec_otlo",
+                    debug: false,
+                   
+                  } );
               
-            
-           break;
+              
+                });
+
+        console.log("done3");
+          if (winner.segme == 1){
+            (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])+1;
+            sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
+                    con.query(sql, function (err, result) {
+                      if (err) throw err;
+                  
+                      console.log(result.affectedRows + " record(s) updated");
+                  
+                      con.end(function (err, result) {
+                        if (err) throw err;
+                        console.log(" Conexao terminada");
+                    
+                      });
+                      con = mysql.createConnection({
+                        host: "185.90.59.52",
+                        user: "drimtec_paulo",
+                        password: "A95856762a!",
+                        database: "drimtec_otlo",
+                        debug: false,
+                       
+                      } );
+                  
+                  
+                    });
+          }
+        
+      
+     break;
 
            case 'AP':
             (tabtab['cosul'+contga][6])=(tabtab['cosul'+contga][6])+parseInt(winner.quantidade);
