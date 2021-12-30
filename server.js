@@ -407,7 +407,7 @@ wss.on('connection', (ws) => {
       break;
     
       case 'winner':
-        let contga=1;
+        let contga=2;
         let prod01a = ['nome1','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
   let prod02a = ['nome2','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
   let prod03a = ['nome3','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
