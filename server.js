@@ -754,6 +754,150 @@ wss.on('connection', (ws) => {
         tabtab.prod02=prod02a;
         tabtab.prod03=prod03a;
         tabtab.prod04=prod04a;
+
+
+
+        let contk = 1;
+        do {
+  
+        sql = "UPDATE ultiprod SET texto1= ('"+(tabtab['prod0'+contk][0])+"') WHERE pos = ('"+contk+"')";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+      
+          console.log(result.affectedRows + " record(s) updated");
+      
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
+      
+      
+        });
+        sql = "UPDATE ultiprod SET texto2= ('"+(tabtab['prod0'+contk][1])+"') WHERE pos = ('"+contk+"')";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+      
+          console.log(result.affectedRows + " record(s) updated");
+      
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
+      
+      
+        });
+        sql = "UPDATE ultiprod SET texto3= ('"+(tabtab['prod0'+contk][2])+"') WHERE pos = ('"+contk+"')";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+      
+          console.log(result.affectedRows + " record(s) updated");
+      
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
+      
+      
+        });
+        sql = "UPDATE ultiprod SET numero1= ('"+(tabtab['prod0'+contk][3])+"') WHERE pos = ('"+contk+"')";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+      
+          console.log(result.affectedRows + " record(s) updated");
+      
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
+      
+      
+        });
+        sql = "UPDATE ultiprod SET numero2= ('"+(tabtab['prod0'+contk][4])+"') WHERE pos = ('"+contk+"')";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+      
+          console.log(result.affectedRows + " record(s) updated");
+      
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
+      
+      
+        });
+        sql = "UPDATE ultiprod SET texto4= ('"+(tabtab['prod0'+contk][6])+"') WHERE pos = ('"+contk+"')";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+      
+          console.log(result.affectedRows + " record(s) updated");
+      
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
+      
+      
+        });
+        contk+=1;
+        } while(contk<5)
+
+
+
+
         sql = "UPDATE tabtab SET numero2 = ('"+(tabtab['cosul'+contga][4])+"') WHERE pos = ('"+contgaw+"')";
                 con.query(sql, function (err, result) {
                   if (err) throw err;
@@ -822,6 +966,151 @@ wss.on('connection', (ws) => {
             tabtab.prod02=prod02a;
             tabtab.prod03=prod03a;
             tabtab.prod04=prod04a;
+
+
+
+            let contk = 1;
+            do {
+      
+            sql = "UPDATE ultiprod SET texto1= ('"+(tabtab['prod0'+contk][0])+"') WHERE pos = ('"+contk+"')";
+            con.query(sql, function (err, result) {
+              if (err) throw err;
+          
+              console.log(result.affectedRows + " record(s) updated");
+          
+              con.end(function (err, result) {
+                if (err) throw err;
+                console.log(" Conexao terminada");
+            
+              });
+              con = mysql.createConnection({
+                host: "185.90.59.52",
+                user: "drimtec_paulo",
+                password: "A95856762a!",
+                database: "drimtec_otlo",
+                debug: false,
+               
+              } );
+          
+          
+            });
+            sql = "UPDATE ultiprod SET texto2= ('"+(tabtab['prod0'+contk][1])+"') WHERE pos = ('"+contk+"')";
+            con.query(sql, function (err, result) {
+              if (err) throw err;
+          
+              console.log(result.affectedRows + " record(s) updated");
+          
+              con.end(function (err, result) {
+                if (err) throw err;
+                console.log(" Conexao terminada");
+            
+              });
+              con = mysql.createConnection({
+                host: "185.90.59.52",
+                user: "drimtec_paulo",
+                password: "A95856762a!",
+                database: "drimtec_otlo",
+                debug: false,
+               
+              } );
+          
+          
+            });
+            sql = "UPDATE ultiprod SET texto3= ('"+(tabtab['prod0'+contk][2])+"') WHERE pos = ('"+contk+"')";
+            con.query(sql, function (err, result) {
+              if (err) throw err;
+          
+              console.log(result.affectedRows + " record(s) updated");
+          
+              con.end(function (err, result) {
+                if (err) throw err;
+                console.log(" Conexao terminada");
+            
+              });
+              con = mysql.createConnection({
+                host: "185.90.59.52",
+                user: "drimtec_paulo",
+                password: "A95856762a!",
+                database: "drimtec_otlo",
+                debug: false,
+               
+              } );
+          
+          
+            });
+            sql = "UPDATE ultiprod SET numero1= ('"+(tabtab['prod0'+contk][3])+"') WHERE pos = ('"+contk+"')";
+            con.query(sql, function (err, result) {
+              if (err) throw err;
+          
+              console.log(result.affectedRows + " record(s) updated");
+          
+              con.end(function (err, result) {
+                if (err) throw err;
+                console.log(" Conexao terminada");
+            
+              });
+              con = mysql.createConnection({
+                host: "185.90.59.52",
+                user: "drimtec_paulo",
+                password: "A95856762a!",
+                database: "drimtec_otlo",
+                debug: false,
+               
+              } );
+          
+          
+            });
+            sql = "UPDATE ultiprod SET numero2= ('"+(tabtab['prod0'+contk][4])+"') WHERE pos = ('"+contk+"')";
+            con.query(sql, function (err, result) {
+              if (err) throw err;
+          
+              console.log(result.affectedRows + " record(s) updated");
+          
+              con.end(function (err, result) {
+                if (err) throw err;
+                console.log(" Conexao terminada");
+            
+              });
+              con = mysql.createConnection({
+                host: "185.90.59.52",
+                user: "drimtec_paulo",
+                password: "A95856762a!",
+                database: "drimtec_otlo",
+                debug: false,
+               
+              } );
+          
+          
+            });
+            sql = "UPDATE ultiprod SET texto4= ('"+(tabtab['prod0'+contk][6])+"') WHERE pos = ('"+contk+"')";
+            con.query(sql, function (err, result) {
+              if (err) throw err;
+          
+              console.log(result.affectedRows + " record(s) updated");
+          
+              con.end(function (err, result) {
+                if (err) throw err;
+                console.log(" Conexao terminada");
+            
+              });
+              con = mysql.createConnection({
+                host: "185.90.59.52",
+                user: "drimtec_paulo",
+                password: "A95856762a!",
+                database: "drimtec_otlo",
+                debug: false,
+               
+              } );
+          
+          
+            });
+            contk+=1;
+            } while(contk<5)
+
+
+
+
+
             
             sql = "UPDATE tabtab SET numero4 = ('"+(tabtab['cosul'+contga][6])+"') WHERE pos = ('"+contgaw+"')";
             con.query(sql, function (err, result) {
@@ -892,6 +1181,151 @@ wss.on('connection', (ws) => {
           tabtab.prod02=prod02a;
           tabtab.prod03=prod03a;
           tabtab.prod04=prod04a;
+
+
+
+          let contk = 1;
+          do {
+    
+          sql = "UPDATE ultiprod SET texto1= ('"+(tabtab['prod0'+contk][0])+"') WHERE pos = ('"+contk+"')";
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+        
+            console.log(result.affectedRows + " record(s) updated");
+        
+            con.end(function (err, result) {
+              if (err) throw err;
+              console.log(" Conexao terminada");
+          
+            });
+            con = mysql.createConnection({
+              host: "185.90.59.52",
+              user: "drimtec_paulo",
+              password: "A95856762a!",
+              database: "drimtec_otlo",
+              debug: false,
+             
+            } );
+        
+        
+          });
+          sql = "UPDATE ultiprod SET texto2= ('"+(tabtab['prod0'+contk][1])+"') WHERE pos = ('"+contk+"')";
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+        
+            console.log(result.affectedRows + " record(s) updated");
+        
+            con.end(function (err, result) {
+              if (err) throw err;
+              console.log(" Conexao terminada");
+          
+            });
+            con = mysql.createConnection({
+              host: "185.90.59.52",
+              user: "drimtec_paulo",
+              password: "A95856762a!",
+              database: "drimtec_otlo",
+              debug: false,
+             
+            } );
+        
+        
+          });
+          sql = "UPDATE ultiprod SET texto3= ('"+(tabtab['prod0'+contk][2])+"') WHERE pos = ('"+contk+"')";
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+        
+            console.log(result.affectedRows + " record(s) updated");
+        
+            con.end(function (err, result) {
+              if (err) throw err;
+              console.log(" Conexao terminada");
+          
+            });
+            con = mysql.createConnection({
+              host: "185.90.59.52",
+              user: "drimtec_paulo",
+              password: "A95856762a!",
+              database: "drimtec_otlo",
+              debug: false,
+             
+            } );
+        
+        
+          });
+          sql = "UPDATE ultiprod SET numero1= ('"+(tabtab['prod0'+contk][3])+"') WHERE pos = ('"+contk+"')";
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+        
+            console.log(result.affectedRows + " record(s) updated");
+        
+            con.end(function (err, result) {
+              if (err) throw err;
+              console.log(" Conexao terminada");
+          
+            });
+            con = mysql.createConnection({
+              host: "185.90.59.52",
+              user: "drimtec_paulo",
+              password: "A95856762a!",
+              database: "drimtec_otlo",
+              debug: false,
+             
+            } );
+        
+        
+          });
+          sql = "UPDATE ultiprod SET numero2= ('"+(tabtab['prod0'+contk][4])+"') WHERE pos = ('"+contk+"')";
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+        
+            console.log(result.affectedRows + " record(s) updated");
+        
+            con.end(function (err, result) {
+              if (err) throw err;
+              console.log(" Conexao terminada");
+          
+            });
+            con = mysql.createConnection({
+              host: "185.90.59.52",
+              user: "drimtec_paulo",
+              password: "A95856762a!",
+              database: "drimtec_otlo",
+              debug: false,
+             
+            } );
+        
+        
+          });
+          sql = "UPDATE ultiprod SET texto4= ('"+(tabtab['prod0'+contk][6])+"') WHERE pos = ('"+contk+"')";
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+        
+            console.log(result.affectedRows + " record(s) updated");
+        
+            con.end(function (err, result) {
+              if (err) throw err;
+              console.log(" Conexao terminada");
+          
+            });
+            con = mysql.createConnection({
+              host: "185.90.59.52",
+              user: "drimtec_paulo",
+              password: "A95856762a!",
+              database: "drimtec_otlo",
+              debug: false,
+             
+            } );
+        
+        
+          });
+          contk+=1;
+          } while(contk<5)
+
+
+
+
+
           
           sql = "UPDATE tabtab SET numero5 = ('"+(tabtab['cosul'+contga][7])+"') WHERE pos = ('"+contgaw+"')";
           con.query(sql, function (err, result) {
@@ -963,6 +1397,150 @@ wss.on('connection', (ws) => {
         tabtab.prod02=prod02a;
         tabtab.prod03=prod03a;
         tabtab.prod04=prod04a;
+
+
+
+        let contk = 1;
+        do {
+  
+        sql = "UPDATE ultiprod SET texto1= ('"+(tabtab['prod0'+contk][0])+"') WHERE pos = ('"+contk+"')";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+      
+          console.log(result.affectedRows + " record(s) updated");
+      
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
+      
+      
+        });
+        sql = "UPDATE ultiprod SET texto2= ('"+(tabtab['prod0'+contk][1])+"') WHERE pos = ('"+contk+"')";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+      
+          console.log(result.affectedRows + " record(s) updated");
+      
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
+      
+      
+        });
+        sql = "UPDATE ultiprod SET texto3= ('"+(tabtab['prod0'+contk][2])+"') WHERE pos = ('"+contk+"')";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+      
+          console.log(result.affectedRows + " record(s) updated");
+      
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
+      
+      
+        });
+        sql = "UPDATE ultiprod SET numero1= ('"+(tabtab['prod0'+contk][3])+"') WHERE pos = ('"+contk+"')";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+      
+          console.log(result.affectedRows + " record(s) updated");
+      
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
+      
+      
+        });
+        sql = "UPDATE ultiprod SET numero2= ('"+(tabtab['prod0'+contk][4])+"') WHERE pos = ('"+contk+"')";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+      
+          console.log(result.affectedRows + " record(s) updated");
+      
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
+      
+      
+        });
+        sql = "UPDATE ultiprod SET texto4= ('"+(tabtab['prod0'+contk][6])+"') WHERE pos = ('"+contk+"')";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+      
+          console.log(result.affectedRows + " record(s) updated");
+      
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
+      
+      
+        });
+        contk+=1;
+        } while(contk<5)
+
+
+
+
         sql = "UPDATE tabtab SET numero6 = ('"+(tabtab['cosul'+contga][8])+"') WHERE pos = ('"+contgaw+"')";
                 con.query(sql, function (err, result) {
                   if (err) throw err;
@@ -1033,6 +1611,150 @@ wss.on('connection', (ws) => {
       tabtab.prod02=prod02a;
       tabtab.prod03=prod03a;
       tabtab.prod04=prod04a;
+
+
+
+
+      let contk = 1;
+      do {
+
+      sql = "UPDATE ultiprod SET texto1= ('"+(tabtab['prod0'+contk][0])+"') WHERE pos = ('"+contk+"')";
+      con.query(sql, function (err, result) {
+        if (err) throw err;
+    
+        console.log(result.affectedRows + " record(s) updated");
+    
+        con.end(function (err, result) {
+          if (err) throw err;
+          console.log(" Conexao terminada");
+      
+        });
+        con = mysql.createConnection({
+          host: "185.90.59.52",
+          user: "drimtec_paulo",
+          password: "A95856762a!",
+          database: "drimtec_otlo",
+          debug: false,
+         
+        } );
+    
+    
+      });
+      sql = "UPDATE ultiprod SET texto2= ('"+(tabtab['prod0'+contk][1])+"') WHERE pos = ('"+contk+"')";
+      con.query(sql, function (err, result) {
+        if (err) throw err;
+    
+        console.log(result.affectedRows + " record(s) updated");
+    
+        con.end(function (err, result) {
+          if (err) throw err;
+          console.log(" Conexao terminada");
+      
+        });
+        con = mysql.createConnection({
+          host: "185.90.59.52",
+          user: "drimtec_paulo",
+          password: "A95856762a!",
+          database: "drimtec_otlo",
+          debug: false,
+         
+        } );
+    
+    
+      });
+      sql = "UPDATE ultiprod SET texto3= ('"+(tabtab['prod0'+contk][2])+"') WHERE pos = ('"+contk+"')";
+      con.query(sql, function (err, result) {
+        if (err) throw err;
+    
+        console.log(result.affectedRows + " record(s) updated");
+    
+        con.end(function (err, result) {
+          if (err) throw err;
+          console.log(" Conexao terminada");
+      
+        });
+        con = mysql.createConnection({
+          host: "185.90.59.52",
+          user: "drimtec_paulo",
+          password: "A95856762a!",
+          database: "drimtec_otlo",
+          debug: false,
+         
+        } );
+    
+    
+      });
+      sql = "UPDATE ultiprod SET numero1= ('"+(tabtab['prod0'+contk][3])+"') WHERE pos = ('"+contk+"')";
+      con.query(sql, function (err, result) {
+        if (err) throw err;
+    
+        console.log(result.affectedRows + " record(s) updated");
+    
+        con.end(function (err, result) {
+          if (err) throw err;
+          console.log(" Conexao terminada");
+      
+        });
+        con = mysql.createConnection({
+          host: "185.90.59.52",
+          user: "drimtec_paulo",
+          password: "A95856762a!",
+          database: "drimtec_otlo",
+          debug: false,
+         
+        } );
+    
+    
+      });
+      sql = "UPDATE ultiprod SET numero2= ('"+(tabtab['prod0'+contk][4])+"') WHERE pos = ('"+contk+"')";
+      con.query(sql, function (err, result) {
+        if (err) throw err;
+    
+        console.log(result.affectedRows + " record(s) updated");
+    
+        con.end(function (err, result) {
+          if (err) throw err;
+          console.log(" Conexao terminada");
+      
+        });
+        con = mysql.createConnection({
+          host: "185.90.59.52",
+          user: "drimtec_paulo",
+          password: "A95856762a!",
+          database: "drimtec_otlo",
+          debug: false,
+         
+        } );
+    
+    
+      });
+      sql = "UPDATE ultiprod SET texto4= ('"+(tabtab['prod0'+contk][6])+"') WHERE pos = ('"+contk+"')";
+      con.query(sql, function (err, result) {
+        if (err) throw err;
+    
+        console.log(result.affectedRows + " record(s) updated");
+    
+        con.end(function (err, result) {
+          if (err) throw err;
+          console.log(" Conexao terminada");
+      
+        });
+        con = mysql.createConnection({
+          host: "185.90.59.52",
+          user: "drimtec_paulo",
+          password: "A95856762a!",
+          database: "drimtec_otlo",
+          debug: false,
+         
+        } );
+    
+    
+      });
+      contk+=1;
+      } while(contk<5)
+
+
+
       
       sql = "UPDATE tabtab SET numero3 = ('"+(tabtab['cosul'+contga][5])+"') WHERE pos = ('"+contgaw+"')";
                 con.query(sql, function (err, result) {
