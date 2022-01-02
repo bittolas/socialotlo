@@ -159,12 +159,55 @@ var con = mysql.createConnection({
 
 
 
+    con.query("SELECT * FROM ultiprod", function (err, result, fields) {
+   
+        if (err) throw err;  
+        let batata = JSON.stringify(result); 
+        let tcham = JSON.parse(batata);
+      
+        tabtab['prod01'] = tcham[0]
+        tabtab['prod02'] = tcham[1]
+        tabtab['prod03'] = tcham[2]
+        tabtab['prod04'] = tcham[3]
+   
+   
+       
+         console.log(tabtab)
+         con.end(function (err, result) {
+          if (err) throw err;
+          console.log(" Conexao terminada");
+      
+        });
+        con = mysql.createConnection({
+          host: "185.90.59.52",
+          user: "drimtec_paulo",
+          password: "A95856762a!",
+          database: "drimtec_otlo",
+          debug: false,
+        });
+         
+        } );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 // SQL SERVER
-setInterval(myTimer, 650000);
+setInterval(myTimer, 50000);
 
 function myTimer() {
 con.query("SELECT * FROM tabtab", function (err, result, fields) {
@@ -221,6 +264,42 @@ con.query("SELECT * FROM tabtab", function (err, result, fields) {
 
 
  
+
+
+sql = "UPDATE tabtab SET numero7 = 0 WHERE pos = 4";
+con.query(sql, function (err, result) {
+  if (err) throw err;
+
+  console.log(result.affectedRows + " record(s) updated");
+
+  con.end(function (err, result) {
+    if (err) throw err;
+    console.log(" Conexao terminada");
+
+  });
+  con = mysql.createConnection({
+    host: "185.90.59.52",
+    user: "drimtec_paulo",
+    password: "A95856762a!",
+    database: "drimtec_otlo",
+    debug: false,
+   
+  } );
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -419,6 +498,15 @@ wss.on('connection', (ws) => {
                 tabtab.prod04=prod04a;
                 
                 
+                sql = "UPDATE ultiprod SET texto1= ('"+(tabtab['prod01'][0])+"') WHERE pos = 1";
+                sql = "UPDATE ultiprod SET texto2= ('"+(tabtab['prod01'][1])+"') WHERE pos = 1";
+                sql = "UPDATE ultiprod SET texto3= ('"+(tabtab['prod01'][2])+"') WHERE pos = 1";
+                sql = "UPDATE ultiprod SET numero1= ('"+(tabtab['prod01'][3])+"') WHERE pos = 1";
+                sql = "UPDATE ultiprod SET numero2= ('"+(tabtab['prod01'][4])+"') WHERE pos = 1";
+                sql = "UPDATE ultiprod SET texto4= ('"+(tabtab['prod01'][6])+"') WHERE pos = 1";
+
+
+
                 
                 sql = "UPDATE tabtab SET numero1 = ('"+(tabtab['cosul'+contga][3])+"') WHERE pos = ('"+contgaw+"')";
                 con.query(sql, function (err, result) {
