@@ -36,10 +36,10 @@ var tabtab = {
   prod04:['nome4','nome2','ghg323',2,'23232',Math.round(d.getTime() / hour),'saude'],
 }
 
-  var prod01a = ['nome1','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
-  var prod02a = ['nome2','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
-  var prod03a = ['nome3','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
-  var prod04a = ['nome4','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
+  let prod01a = ['nome1','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
+  let prod02a = ['nome2','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
+  let prod03a = ['nome3','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
+  let prod04a = ['nome4','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
   var lg = {
     tipo: "lg",
     username: "estados",
@@ -121,7 +121,6 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
   prod04a = tcham[4]
 
  
-   console.log(tabtab)
    con.end(function (err, result) {
     if (err) throw err;
     console.log(" Conexao terminada");
@@ -511,10 +510,10 @@ wss.on('connection', (ws) => {
       case 'winner':
         let contgaw=2;
         let contga=1;
-        let prod01a = ['nome1','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
-  let prod02a = ['nome2','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
-  let prod03a = ['nome3','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
-  let prod04a = ['nome4','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
+        prod01a = ['nome1','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
+        prod02a = ['nome2','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
+        prod03a = ['nome3','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
+        prod04a = ['nome4','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
         
         console.log("chegou nova producao");
         winner=decisor;
