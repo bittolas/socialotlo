@@ -117,10 +117,10 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
   let batata = JSON.stringify(result); 
   let tcham = JSON.parse(batata);
 
-  tabtab['prod01'] = tcham[0]
-  tabtab['prod02'] = tcham[2]
-  tabtab['prod03'] = tcham[3]
-  tabtab['prod04'] = tcham[4]
+  tabtab.prod01 = tcham[0]
+  tabtab.prod02 = tcham[2]
+  tabtab.prod03 = tcham[3]
+  tabtab.prod04 = tcham[4]
   prod01a = tcham[0]
   prod02a = tcham[2]
   prod03a = tcham[3]
@@ -201,10 +201,10 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
         let batata = JSON.stringify(result); 
         let tcham = JSON.parse(batata);
       
-        tabtab['prod01'] = tcham[0]
-        tabtab['prod02'] = tcham[1]
-        tabtab['prod03'] = tcham[2]
-        tabtab['prod04'] = tcham[3]
+        tabtab.prod01 = tcham[0]
+        tabtab.prod02 = tcham[2]
+        tabtab.prod03 = tcham[3]
+        tabtab.prod04 = tcham[4]
         prod01a = tcham[0]
         prod02a = tcham[2]
         prod03a = tcham[3]
