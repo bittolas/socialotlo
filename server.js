@@ -125,13 +125,29 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
   tabtab.prod01[6] = tcham[0].texto4
 
 
-  tabtab.prod02 = tcham[2]
-  tabtab.prod03 = tcham[3]
-  tabtab.prod04 = tcham[4]
-  prod01a = tcham[0]
-  prod02a = tcham[2]
-  prod03a = tcham[3]
-  prod04a = tcham[4]
+  tabtab.prod02[0] = tcham[2].texto1
+  tabtab.prod02[1] = tcham[2].texto2
+  tabtab.prod02[2] = tcham[2].texto3
+  tabtab.prod02[3] = tcham[2].numero1
+  tabtab.prod02[4] = tcham[2].numero2
+  tabtab.prod02[6] = tcham[2].texto4
+
+  tabtab.prod03[0] = tcham[3].texto1
+  tabtab.prod03[1] = tcham[3].texto2
+  tabtab.prod03[2] = tcham[3].texto3
+  tabtab.prod03[3] = tcham[3].numero1
+  tabtab.prod03[4] = tcham[3].numero2
+  tabtab.prod03[6] = tcham[3].texto4
+
+  tabtab.prod04[0] = tcham[4].texto1
+  tabtab.prod04[1] = tcham[4].texto2
+  tabtab.prod04[2] = tcham[4].texto3
+  tabtab.prod04[3] = tcham[4].numero1
+  tabtab.prod04[4] = tcham[4].numero2
+  tabtab.prod04[6] = tcham[4].texto4
+
+
+
   
  
    con.end(function (err, result) {
@@ -209,18 +225,33 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
         let tcham = JSON.parse(batata);
       
         tabtab.prod01[0] = tcham[0].texto1
-        tabtab.prod01[1] = tcham[0].texto2
-        tabtab.prod01[2] = tcham[0].texto3
-        tabtab.prod01[3] = tcham[0].numero1
-        tabtab.prod01[4] = tcham[0].numero2
-        tabtab.prod01[6] = tcham[0].texto4
-        tabtab.prod02 = tcham[2]
-        tabtab.prod03 = tcham[3]
-        tabtab.prod04 = tcham[4]
-        prod01a = tcham[0]
-        prod02a = tcham[2]
-        prod03a = tcham[3]
-        prod04a = tcham[4]
+  tabtab.prod01[1] = tcham[0].texto2
+  tabtab.prod01[2] = tcham[0].texto3
+  tabtab.prod01[3] = tcham[0].numero1
+  tabtab.prod01[4] = tcham[0].numero2
+  tabtab.prod01[6] = tcham[0].texto4
+
+
+  tabtab.prod02[0] = tcham[2].texto1
+  tabtab.prod02[1] = tcham[2].texto2
+  tabtab.prod02[2] = tcham[2].texto3
+  tabtab.prod02[3] = tcham[2].numero1
+  tabtab.prod02[4] = tcham[2].numero2
+  tabtab.prod02[6] = tcham[2].texto4
+
+  tabtab.prod03[0] = tcham[3].texto1
+  tabtab.prod03[1] = tcham[3].texto2
+  tabtab.prod03[2] = tcham[3].texto3
+  tabtab.prod03[3] = tcham[3].numero1
+  tabtab.prod03[4] = tcham[3].numero2
+  tabtab.prod03[6] = tcham[3].texto4
+
+  tabtab.prod04[0] = tcham[4].texto1
+  tabtab.prod04[1] = tcham[4].texto2
+  tabtab.prod04[2] = tcham[4].texto3
+  tabtab.prod04[3] = tcham[4].numero1
+  tabtab.prod04[4] = tcham[4].numero2
+  tabtab.prod04[6] = tcham[4].texto4
    
        
          console.log(tabtab)
