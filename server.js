@@ -105,6 +105,34 @@ var con = mysql.createConnection({
   debug: false,
 });
 
+con.query("SELECT * FROM ultiprod", function (err, result, fields) {
+   
+  if (err) throw err;  
+  let batata = JSON.stringify(result); 
+  let tcham = JSON.parse(batata);
+
+  tabtab['prod01'] = tcham[0]
+  tabtab['prod02'] = tcham[2]
+  tabtab['prod03'] = tcham[3]
+  tabtab['prod04'] = tcham[4]
+
+
+ 
+   console.log(tabtab)
+   con.end(function (err, result) {
+    if (err) throw err;
+    console.log(" Conexao terminada");
+
+  });
+  con = mysql.createConnection({
+    host: "185.90.59.52",
+    user: "drimtec_paulo",
+    password: "A95856762a!",
+    database: "drimtec_otlo",
+    debug: false,
+  });
+   
+  } );
 
 
           
@@ -157,8 +185,8 @@ var con = mysql.createConnection({
   
 
 
-
-
+    setInterval(myTimer, 50000);
+    function myTimer() {
     con.query("SELECT * FROM ultiprod", function (err, result, fields) {
    
         if (err) throw err;  
@@ -188,39 +216,10 @@ var con = mysql.createConnection({
          
         } );
 
+      }
 
 
 
-let contr= 1;
-
-
-
-
-
-
-          
-        sql = "UPDATE ultiprod SET texto1= ('"+(tabtab['prod0'+contr][0])+"') WHERE pos = ('"+contr+"')";
-        con.query(sql, function (err, result) {
-          if (err) throw err;
-      
-          console.log(result.affectedRows + " record(s) updated");
-      
-          con.end(function (err, result) {
-            if (err) throw err;
-            console.log(" Conexao terminada");
-        
-          });
-          con = mysql.createConnection({
-            host: "185.90.59.52",
-            user: "drimtec_paulo",
-            password: "A95856762a!",
-            database: "drimtec_otlo",
-            debug: false,
-           
-          } );
-      
-      
-        });
 
 
 
