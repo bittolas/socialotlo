@@ -84,13 +84,19 @@ const server = express()
 
 const wss = new Server({ server });
 
-setInterval(myTimer, 20000);
 
-function myTimer() {
-  
-  wss.clients.forEach((client) =>  client.send(JSON.stringify(tabtab)));
- 
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 // SQL SERVER
 
@@ -119,7 +125,7 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
   prod02a = tcham[2]
   prod03a = tcham[3]
   prod04a = tcham[4]
-
+  
  
    con.end(function (err, result) {
     if (err) throw err;
@@ -1854,4 +1860,10 @@ wss.on('connection', (ws) => {
 
 
 
+setInterval(myTimer, 20000);
 
+function myTimer() {
+  
+  wss.clients.forEach((client) =>  client.send(JSON.stringify(tabtab)));
+ 
+}
