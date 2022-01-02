@@ -9,7 +9,7 @@ const d = new Date();
 var cont6=2;
 var cont7=1;
 
-
+let contk = 1;
 var tabtab = {
   tipo: "tabgiza",
   tabid:['SDR123','Claudia','Barradas'],
@@ -538,7 +538,7 @@ wss.on('connection', (ws) => {
                 
                
 
-                let contk = 1;
+                contk = 1;
                 do {
           
                 sql = "UPDATE ultiprod SET texto1= ('"+(tabtab['prod0'+contk][0])+"') WHERE pos = ('"+contk+"')";
@@ -757,7 +757,7 @@ wss.on('connection', (ws) => {
 
 
 
-        let contk = 1;
+         contk = 1;
         do {
   
         sql = "UPDATE ultiprod SET texto1= ('"+(tabtab['prod0'+contk][0])+"') WHERE pos = ('"+contk+"')";
@@ -969,7 +969,7 @@ wss.on('connection', (ws) => {
 
 
 
-            let contk = 1;
+             contk = 1;
             do {
       
             sql = "UPDATE ultiprod SET texto1= ('"+(tabtab['prod0'+contk][0])+"') WHERE pos = ('"+contk+"')";
@@ -1184,7 +1184,7 @@ wss.on('connection', (ws) => {
 
 
 
-          let contk = 1;
+           contk = 1;
           do {
     
           sql = "UPDATE ultiprod SET texto1= ('"+(tabtab['prod0'+contk][0])+"') WHERE pos = ('"+contk+"')";
@@ -1400,7 +1400,7 @@ wss.on('connection', (ws) => {
 
 
 
-        let contk = 1;
+       contk = 1;
         do {
   
         sql = "UPDATE ultiprod SET texto1= ('"+(tabtab['prod0'+contk][0])+"') WHERE pos = ('"+contk+"')";
@@ -1615,7 +1615,7 @@ wss.on('connection', (ws) => {
 
 
 
-      let contk = 1;
+       contk = 1;
       do {
 
       sql = "UPDATE ultiprod SET texto1= ('"+(tabtab['prod0'+contk][0])+"') WHERE pos = ('"+contk+"')";
