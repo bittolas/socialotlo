@@ -200,14 +200,17 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
         tabtab['prod02'] = tcham[1]
         tabtab['prod03'] = tcham[2]
         tabtab['prod04'] = tcham[3]
-   
+        prod01a = tcham[0]
+        prod02a = tcham[2]
+        prod03a = tcham[3]
+        prod04a = tcham[4]
    
        
          console.log(tabtab)
          con.end(function (err, result) {
           if (err) throw err;
           console.log(" Conexao terminada");
-      
+          console('MAU MAU')
         });
         con = mysql.createConnection({
           host: "185.90.59.52",
