@@ -191,6 +191,46 @@ var con = mysql.createConnection({
 
 
 
+let contr= 1;
+
+
+
+
+
+
+          
+        sql = "UPDATE ultiprod SET texto1= ('"+(tabtab['prod0'+contr][0])+"') WHERE pos = ('"+contr+"')";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+      
+          console.log(result.affectedRows + " record(s) updated");
+      
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
+      
+      
+        });
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -634,7 +674,7 @@ wss.on('connection', (ws) => {
                 });
                 contk+=1;
                 } while(contk<5)
-
+                
 
                 
                 sql = "UPDATE tabtab SET numero1 = ('"+(tabtab['cosul'+contga][3])+"') WHERE pos = ('"+contgaw+"')";
