@@ -70,6 +70,13 @@ var tabtab = {
     
 
 }
+
+var novoreclame = {
+  tipo: "reclame",
+  pos: "",
+  texto: "",
+
+}
 var sql;
 var kika;
 const express = require('express');
@@ -168,11 +175,15 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
 
           
   con.query("SELECT * FROM tabtab", function (err, result, fields) {
-  do {
-    if (err) throw err;  
     let batata = JSON.stringify(result); 
     let tcham = JSON.parse(batata);
-    console.log(tcham[cont6].texto1)
+    tabtab.reclame1 = tcham[0].texto2
+    tabtab.reclame2 = tcham[0].texto3
+    do {
+    if (err) throw err;  
+  
+  
+
     tabtab['cosul'+cont7][0] = tcham[cont6].texto1
     tabtab['cosul'+cont7][1] = tcham[cont6].texto2
     tabtab['cosul'+cont7][2] = tcham[cont6].texto3
@@ -216,8 +227,8 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
   
 
 
-    setInterval(myTimer, 50000);
-    function myTimer() {
+    setInterval(myTimer3, 5000);
+    function myTimer3() {
     con.query("SELECT * FROM ultiprod", function (err, result, fields) {
    
         if (err) throw err;  
@@ -258,7 +269,7 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
          con.end(function (err, result) {
           if (err) throw err;
           console.log(" Conexao terminada");
-          console('MAU MAU')
+          console.log('MAU MAU')
         });
         con = mysql.createConnection({
           host: "185.90.59.52",
@@ -299,14 +310,18 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
 
 
 // SQL SERVER
-setInterval(myTimer, 50000);
+setInterval(myTimer2, 5000);
 
-function myTimer() {
+function myTimer2() {
 con.query("SELECT * FROM tabtab", function (err, result, fields) {
+  let batata = JSON.stringify(result); 
+    let tcham = JSON.parse(batata);
+    console.log(tabtab)
+    tabtab.reclame1 = tcham[0].texto2
+    tabtab.reclame2 = tcham[0].texto3
   do {
     if (err) throw err;  
-    let batata = JSON.stringify(result); 
-    let tcham = JSON.parse(batata);
+    
     console.log(tcham[cont6].texto1)
     tabtab['cosul'+cont7][0] = tcham[cont6].texto1
     tabtab['cosul'+cont7][1] = tcham[cont6].texto2
@@ -327,10 +342,13 @@ con.query("SELECT * FROM tabtab", function (err, result, fields) {
     tabtab['cosul'+cont7][16] = tcham[cont6].numero14
     tabtab['cosul'+cont7][17] = tcham[cont6].numero15
     tabtab['cosul'+cont7][18] = tcham[cont6].texto4
+  
     cont6 +=1;
     cont7 +=1;  
      }
      while (cont6<17);
+  
+   
      cont6=2;
      cont7=1;
      console.log(tabtab)
@@ -350,46 +368,6 @@ con.query("SELECT * FROM tabtab", function (err, result, fields) {
 
   } );
 }
-
-
-
-
-
- 
-
-
-sql = "UPDATE tabtab SET numero7 = 0 WHERE pos = 4";
-con.query(sql, function (err, result) {
-  if (err) throw err;
-
-  console.log(result.affectedRows + " record(s) updated");
-
-  con.end(function (err, result) {
-    if (err) throw err;
-    console.log(" Conexao terminada");
-
-  });
-  con = mysql.createConnection({
-    host: "185.90.59.52",
-    user: "drimtec_paulo",
-    password: "A95856762a!",
-    database: "drimtec_otlo",
-    debug: false,
-   
-  } );
-
-
-});
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -416,6 +394,58 @@ wss.on('connection', (ws) => {
     console.log(decisor.tipo)
     console.log(decisor)
     switch (decisor.tipo) {
+      case 'reclame1':
+        novoreclame= decisor;
+        sql = "UPDATE tabtab SET texto2= ('"+(novoreclame.texto)+"') WHERE pos = 0";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+      
+          console.log(result.affectedRows + " record(s) updated");
+      
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
+      
+      
+        });
+        break;
+        case 'reclame2':
+          novoreclame= decisor;
+          sql = "UPDATE tabtab SET texto3= ('"+(novoreclame.texto)+"') WHERE pos = 0";
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+        
+            console.log(result.affectedRows + " record(s) updated");
+        
+            con.end(function (err, result) {
+              if (err) throw err;
+              console.log(" Conexao terminada");
+          
+            });
+            con = mysql.createConnection({
+              host: "185.90.59.52",
+              user: "drimtec_paulo",
+              password: "A95856762a!",
+              database: "drimtec_otlo",
+              debug: false,
+             
+            } );
+        
+        
+          });
+break;
+
+
       case 'lg':
         console.log("tentativa de login")
           lg = decisor;
@@ -1908,5 +1938,5 @@ setInterval(myTimer, 20000);
 function myTimer() {
   
   wss.clients.forEach((client) =>  client.send(JSON.stringify(tabtab)));
- 
+ console.log('tabacualizada')
 }
