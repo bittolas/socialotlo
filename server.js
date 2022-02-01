@@ -494,7 +494,7 @@ console.log("fase 1 terminada")
     console.log(result)
     console.log(tcham);
     console.log(batata)
-console.log(tcham[3].nnoticia)
+console.log(tcham[0].nnoticia)
     tabtab.tabnes=tcham;
     con.end(function (err, result) {
       if (err) throw err;
