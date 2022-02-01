@@ -34,8 +34,17 @@ var tabtab = {
   prod02:['nome2','nome2','ghg323',2,'23232',Math.round(d.getTime() / hour),'saude'],
   prod03:['nome3','nome2','ghg323',2,'23232',Math.round(d.getTime() / hour),'saude'],
   prod04:['nome4','nome2','ghg323',2,'23232',Math.round(d.getTime() / hour),'saude'],
+  not01:['nome4','nome2','ghg323',"T","t","caixa",'23232',Math.round(d.getTime() / hour)],
+  not02:['nome4','nome2','ghg323',"T","t","caixa",'23232',Math.round(d.getTime() / hour)],
+  not03:['nome4','nome2','ghg323',"T","t","caixa",'23232',Math.round(d.getTime() / hour)],
+  not04:['nome4','nome2','ghg323',"T","t","caixa",'23232',Math.round(d.getTime() / hour)],
+  totnot: "",
+  tabnes:"",
 }
-
+  let not01a = ['nome4','nome2','ghg323',"T","t","caixa",'23232',Math.round(d.getTime() / hour)];
+  let not02a = ['nome4','nome2','ghg323',"T","t","caixa",'23232',Math.round(d.getTime() / hour)];
+  let not03a = ['nome4','nome2','ghg323',"T","t","caixa",'23232',Math.round(d.getTime() / hour)];
+  let not04a = ['nome4','nome2','ghg323',"T","t","caixa",'23232',Math.round(d.getTime() / hour)];
   let prod01a = ['nome1','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
   let prod02a = ['nome2','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
   let prod03a = ['nome3','nome21','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'];
@@ -52,6 +61,20 @@ var tabtab = {
     cosul: "cosuldd2",
     Valido: "0",
   }
+
+
+  var not = {
+    tipo: "not",
+    nnoticia: "1",
+    nome1: "estados",
+    nome2: "estados",
+    titulo: "cos",
+    subtitulo: "Saude",
+    caixa: "ola",
+    hora: Date,
+    extra: "er"
+}
+
   var newprod = {
     tipo: "newprod",
     username: "estados",
@@ -117,6 +140,67 @@ var con = mysql.createConnection({
   database: "drimtec_otlo",
   debug: false,
 });
+
+con.query("SELECT * FROM ultinews", function (err, result, fields) {
+   
+  if (err) throw err;  
+  let batata = JSON.stringify(result); 
+  let tcham = JSON.parse(batata);
+
+
+  tabtab.not01[0] = tcham[0].texto1;
+  tabtab.not01[1] = tcham[0].texto2;
+  tabtab.not01[3] = tcham[0].texto4;
+  tabtab.not01[4] = tcham[0].texto5;
+  tabtab.not01[5] = tcham[0].texto6;
+  tabtab.not01[6] = tcham[0].texto7;
+
+
+  tabtab.not02[0] = tcham[2].texto1;
+  tabtab.not02[1] = tcham[2].texto2;
+  tabtab.not02[3] = tcham[2].texto4;
+  tabtab.not02[4] = tcham[2].texto5;
+  tabtab.not02[5] = tcham[2].texto6;
+  tabtab.not02[6] = tcham[2].texto7;
+
+  tabtab.not03[0] = tcham[3].texto1;
+  tabtab.not03[1] = tcham[3].texto2;
+  tabtab.not03[3] = tcham[3].texto4;
+  tabtab.not03[4] = tcham[3].texto5;
+  tabtab.not03[5] = tcham[3].texto6;
+  tabtab.not03[6] = tcham[3].texto7;
+
+  tabtab.not04[0] = tcham[4].texto1;
+  tabtab.not04[1] = tcham[4].texto2;
+  tabtab.not04[3] = tcham[4].texto4;
+  tabtab.not04[4] = tcham[4].texto5;
+  tabtab.not04[5] = tcham[4].texto6;
+  tabtab.not04[6] = tcham[4].texto7;
+
+
+
+
+  
+ 
+   con.end(function (err, result) {
+    if (err) throw err;
+    console.log(" Conexao terminada");
+
+  });
+  con = mysql.createConnection({
+    host: "185.90.59.52",
+    user: "drimtec_paulo",
+    password: "A95856762a!",
+    database: "drimtec_otlo",
+    debug: false,
+  });
+   
+  } );
+
+
+
+
+
 
 con.query("SELECT * FROM ultiprod", function (err, result, fields) {
    
@@ -209,7 +293,7 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
      while (cont6<17);
      cont6=2;
      cont7=1;
-     console.log(tabtab)
+     
      con.end(function (err, result) {
       if (err) throw err;
       console.log(" Conexao terminada");
@@ -227,7 +311,7 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
   
 
 
-    setInterval(myTimer3, 5000);
+    setInterval(myTimer3, 2000);
     function myTimer3() {
     con.query("SELECT * FROM ultiprod", function (err, result, fields) {
    
@@ -265,7 +349,7 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
   tabtab.prod04[6] = tcham[4].texto4
    
        
-         console.log(tabtab)
+        
          con.end(function (err, result) {
           if (err) throw err;
           console.log(" Conexao terminada");
@@ -286,17 +370,72 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
 
 
 
+      setInterval(myTimer3, 2000);
+      function myTimer3() {
 
 
-
-
+        con.query("SELECT * FROM ultinews", function (err, result, fields) {
+   
+          if (err) throw err;  
+          let batata = JSON.stringify(result); 
+          let tcham = JSON.parse(batata);
+        
+        
+          tabtab.not01[0] = tcham[0].texto1;
+          tabtab.not01[1] = tcham[0].texto2;
+          tabtab.not01[3] = tcham[0].texto4;
+          tabtab.not01[4] = tcham[0].texto5;
+          tabtab.not01[5] = tcham[0].texto6;
+          tabtab.not01[6] = tcham[0].texto7;
+        
+        
+          tabtab.not02[0] = tcham[2].texto1;
+          tabtab.not02[1] = tcham[2].texto2;
+          tabtab.not02[3] = tcham[2].texto4;
+          tabtab.not02[4] = tcham[2].texto5;
+          tabtab.not02[5] = tcham[2].texto6;
+          tabtab.not02[6] = tcham[2].texto7;
+        
+          tabtab.not03[0] = tcham[3].texto1;
+          tabtab.not03[1] = tcham[3].texto2;
+          tabtab.not03[3] = tcham[3].texto4;
+          tabtab.not03[4] = tcham[3].texto5;
+          tabtab.not03[5] = tcham[3].texto6;
+          tabtab.not03[6] = tcham[3].texto7;
+        
+          tabtab.not04[0] = tcham[4].texto1;
+          tabtab.not04[1] = tcham[4].texto2;
+          tabtab.not04[3] = tcham[4].texto4;
+          tabtab.not04[4] = tcham[4].texto5;
+          tabtab.not04[5] = tcham[4].texto6;
+          tabtab.not04[6] = tcham[4].texto7;
+        
+        
+        
+        
+          
+         
+           con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+          });
+           
+          } );
 
 
         
 
 
 
-
+      }
 
 
 
@@ -313,16 +452,83 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
 setInterval(myTimer2, 5000);
 
 function myTimer2() {
+
+
+
+//Retorna valor da tabela de noticias
+var sql ="SELECT nnoticia FROM tabnews WHERE nnoticia=(SELECT max(nnoticia) FROM tabnews);"
+con.query(sql, function (err, result) {
+  if (err) throw err;
+  let batata = JSON.stringify(result); 
+  let tcham = JSON.parse(batata);
+  console.log(result)
+  console.log(tcham[0].nnoticia);
+ 
+
+tabtab.totnot = tcham[0].nnoticia;
+console.log(tabtab.totnot)
+console.log("fase 1 terminada")
+  con.end(function (err, result) {
+    if (err) throw err;
+    console.log(" Conexao terminada");
+
+  });
+  con = mysql.createConnection({
+    host: "185.90.59.52",
+    user: "drimtec_paulo",
+    password: "A95856762a!",
+    database: "drimtec_otlo",
+    debug: false,
+   
+  } );
+
+
+});
+
+
+  sql = "SELECT * FROM tabnews";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    let batata = JSON.stringify(result); 
+    let tcham = JSON.parse(batata);
+    console.log(result)
+    console.log(tcham);
+    console.log(batata)
+console.log(tcham[3].nnoticia)
+    tabtab.tabnes=tcham;
+    con.end(function (err, result) {
+      if (err) throw err;
+      console.log(" Conexao terminada");
+  
+    });
+    con = mysql.createConnection({
+      host: "185.90.59.52",
+      user: "drimtec_paulo",
+      password: "A95856762a!",
+      database: "drimtec_otlo",
+      debug: false,
+     
+    } );
+
+
+  });
+
+
+
+
+
+
+
 con.query("SELECT * FROM tabtab", function (err, result, fields) {
   let batata = JSON.stringify(result); 
     let tcham = JSON.parse(batata);
-    console.log(tabtab)
+  
     tabtab.reclame1 = tcham[0].texto2
     tabtab.reclame2 = tcham[0].texto3
   do {
     if (err) throw err;  
     
-    console.log(tcham[cont6].texto1)
+  
     tabtab['cosul'+cont7][0] = tcham[cont6].texto1
     tabtab['cosul'+cont7][1] = tcham[cont6].texto2
     tabtab['cosul'+cont7][2] = tcham[cont6].texto3
@@ -351,7 +557,7 @@ con.query("SELECT * FROM tabtab", function (err, result, fields) {
    
      cont6=2;
      cont7=1;
-     console.log(tabtab)
+    
      con.end(function (err, result) {
       if (err) throw err;
       console.log(" Conexao terminada");
@@ -394,6 +600,237 @@ wss.on('connection', (ws) => {
     console.log(decisor.tipo)
     console.log(decisor)
     switch (decisor.tipo) {
+      case 'not':
+        not = decisor;
+        let bek ="8";
+        let nomenot = 'teste'+bek;
+        var sql ="SELECT nnoticia FROM tabnews WHERE nnoticia=(SELECT max(nnoticia) FROM tabnews);"
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+          let batata = JSON.stringify(result); 
+          let tcham = JSON.parse(batata);
+          console.log("teste1")
+          console.log(tcham);
+          console.log(tcham[0].nnoticia)
+          console.log("teste2")
+         console.log(batata)
+         console.log("teste3")
+         console.log(result);
+          console.log(result.affectedRows + " record(s) updated");
+        not.nnoticia = tcham[0].nnoticia + 1;
+        console.log(not.nnoticia)
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
+      
+      
+       
+       
+     
+        var sql = "INSERT INTO tabnews (nnoticia, nome1, nome2, titulo, subtitulo, corpo, hora, extra) VALUES ('"+not.nnoticia+"', '"+not.nome1+"', '"+not.nome2+"', '"+not.titulo+"', '"+not.subtitulo+"', '"+not.caixa+"', '"+not.hora+"', '"+not.extra+"')";
+        con.query(sql, function (err, result) {
+          if (err) throw err;
+                not01a[0] = not.nome1;
+                not01a[1] = not.nome2;
+                not01a[3] = not.titulo;
+                not01a[4] = not.subtitulo;
+                not01a[5] = not.caixa;
+                not01a[6] = not.hora;
+                not02a=tabtab.not01;
+                not03a=tabtab.not02;
+                not04a=tabtab.not03;
+                tabtab.not01=not01a;
+                tabtab.not02=not02a;
+                tabtab.not03=not03a;
+                tabtab.not04=not04a;
+          console.log(result.affectedRows + " record(s) updated");
+      
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
+          contk = 1;
+          do {
+    
+          sql = "UPDATE ultinews SET texto1= ('"+(tabtab['not0'+contk][0])+"') WHERE pos = ('"+contk+"')";
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+        
+            console.log(result.affectedRows + " record(s) updated");
+        
+            con.end(function (err, result) {
+              if (err) throw err;
+              console.log(" Conexao terminada");
+          
+            });
+            con = mysql.createConnection({
+              host: "185.90.59.52",
+              user: "drimtec_paulo",
+              password: "A95856762a!",
+              database: "drimtec_otlo",
+              debug: false,
+             
+            } );
+        
+        
+          });
+          sql = "UPDATE ultinews SET texto2= ('"+(tabtab['not0'+contk][1])+"') WHERE pos = ('"+contk+"')";
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+        
+            console.log(result.affectedRows + " record(s) updated");
+        
+            con.end(function (err, result) {
+              if (err) throw err;
+              console.log(" Conexao terminada");
+          
+            });
+            con = mysql.createConnection({
+              host: "185.90.59.52",
+              user: "drimtec_paulo",
+              password: "A95856762a!",
+              database: "drimtec_otlo",
+              debug: false,
+             
+            } );
+        
+        
+          });
+          sql = "UPDATE ultinews SET texto3= ('"+(tabtab['not0'+contk][2])+"') WHERE pos = ('"+contk+"')";
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+        
+            console.log(result.affectedRows + " record(s) updated");
+        
+            con.end(function (err, result) {
+              if (err) throw err;
+              console.log(" Conexao terminada");
+          
+            });
+            con = mysql.createConnection({
+              host: "185.90.59.52",
+              user: "drimtec_paulo",
+              password: "A95856762a!",
+              database: "drimtec_otlo",
+              debug: false,
+             
+            } );
+        
+        
+          });
+          sql = "UPDATE ultinews SET texto4= ('"+(tabtab['not0'+contk][3])+"') WHERE pos = ('"+contk+"')";
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+        
+            console.log(result.affectedRows + " record(s) updated");
+        
+            con.end(function (err, result) {
+              if (err) throw err;
+              console.log(" Conexao terminada");
+          
+            });
+            con = mysql.createConnection({
+              host: "185.90.59.52",
+              user: "drimtec_paulo",
+              password: "A95856762a!",
+              database: "drimtec_otlo",
+              debug: false,
+             
+            } );
+        
+        
+          });
+          sql = "UPDATE ultinews SET texto5= ('"+(tabtab['not0'+contk][4])+"') WHERE pos = ('"+contk+"')";
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+        
+            console.log(result.affectedRows + " record(s) updated");
+        
+            con.end(function (err, result) {
+              if (err) throw err;
+              console.log(" Conexao terminada");
+          
+            });
+            con = mysql.createConnection({
+              host: "185.90.59.52",
+              user: "drimtec_paulo",
+              password: "A95856762a!",
+              database: "drimtec_otlo",
+              debug: false,
+             
+            } );
+        
+        
+          });
+          sql = "UPDATE ultinews SET texto6= ('"+(tabtab['not0'+contk][5])+"') WHERE pos = ('"+contk+"')";
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+        
+            console.log(result.affectedRows + " record(s) updated");
+        
+            con.end(function (err, result) {
+              if (err) throw err;
+              console.log(" Conexao terminada");
+          
+            });
+            con = mysql.createConnection({
+              host: "185.90.59.52",
+              user: "drimtec_paulo",
+              password: "A95856762a!",
+              database: "drimtec_otlo",
+              debug: false,
+             
+            } );
+        
+        
+          });
+          sql = "UPDATE ultinews SET texto7= ('"+(tabtab['not0'+contk][6])+"') WHERE pos = ('"+contk+"')";
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+        
+            console.log(result.affectedRows + " record(s) updated");
+        
+            con.end(function (err, result) {
+              if (err) throw err;
+              console.log(" Conexao terminada");
+          
+            });
+            con = mysql.createConnection({
+              host: "185.90.59.52",
+              user: "drimtec_paulo",
+              password: "A95856762a!",
+              database: "drimtec_otlo",
+              debug: false,
+             
+            } );
+        
+        
+          });
+          contk+=1;
+          } while(contk<5)
+      
+        });
+      });
+        break;
       case 'reclame1':
         novoreclame= decisor;
         sql = "UPDATE tabtab SET texto2= ('"+(novoreclame.texto)+"') WHERE pos = 0";
