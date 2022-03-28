@@ -61,8 +61,11 @@ var tabtab = {
     cosul: "cosuldd2",
     Valido: "0",
   }
+var tabcic = {
 
 
+};
+var dinami = "FLORA XAVIER"
   var not = {
     tipo: "not",
     nnoticia: "1",
@@ -89,7 +92,7 @@ var tabtab = {
     prodit: "Saude",
     quantidade: 0,
     hora: Date,
-    segme: 1,
+    segmet: "8",
     
 
 }
@@ -182,18 +185,7 @@ con.query("SELECT * FROM ultinews", function (err, result, fields) {
 
   
  
-   con.end(function (err, result) {
-    if (err) throw err;
-    console.log(" Conexao terminada actualizacao inicial do mostrador de noticias");
-
-  });
-  con = mysql.createConnection({
-    host: "185.90.59.52",
-    user: "drimtec_paulo",
-    password: "A95856762a!",
-    database: "drimtec_otlo",
-    debug: false,
-  });
+  
    
   } );
 
@@ -241,18 +233,7 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
 
   
  
-   con.end(function (err, result) {
-    if (err) throw err;
-    console.log(" Conexao terminada actualizacao inicial do mostrador de producao");
 
-  });
-  con = mysql.createConnection({
-    host: "185.90.59.52",
-    user: "drimtec_paulo",
-    password: "A95856762a!",
-    database: "drimtec_otlo",
-    debug: false,
-  });
    
   } );
 
@@ -366,7 +347,8 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
           if (err) throw err;  
           let batata = JSON.stringify(result); 
           let tcham = JSON.parse(batata);
-        console.log(batata)
+        
+        
         
           tabtab.not01[0] = tcham[0].texto1;
           tabtab.not01[1] = tcham[0].texto2;
@@ -408,9 +390,27 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
 
 
         
+// RETORNA A TABELA DO CICLO
 
 
 
+
+
+          var sql ="SELECT * FROM ciclorank WHERE DINAMIZADOR='\tCLÀUDIA BARRADAS\t'"
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+            let batata = JSON.stringify(result); 
+            let tcham = JSON.parse(batata);
+            tabcic = tcham;
+        
+           
+       
+     
+          console.log("Tabela do ciclo actualizada")
+            
+          
+          
+          });
    
 
 
@@ -422,7 +422,8 @@ con.query(sql, function (err, result) {
   let batata = JSON.stringify(result); 
   let tcham = JSON.parse(batata);
   
- 
+
+ console.log(tcham);
  
 
 tabtab.totnot = tcham[0].nnoticia;
@@ -455,7 +456,7 @@ console.log("fase 1 terminada")
 con.query("SELECT * FROM tabtab", function (err, result, fields) {
   let batata = JSON.stringify(result); 
     let tcham = JSON.parse(batata);
-  
+ 
     tabtab.reclame1 = tcham[0].texto2
     tabtab.reclame2 = tcham[0].texto3
   do {
@@ -552,19 +553,7 @@ wss.on('connection', (ws) => {
           console.log(result.affectedRows + " record(s) updated");
         not.nnoticia = tcham[0].nnoticia + 1;
         console.log(not.nnoticia)
-          con.end(function (err, result) {
-            if (err) throw err;
-            console.log(" Conexao terminada");
-        
-          });
-          con = mysql.createConnection({
-            host: "185.90.59.52",
-            user: "drimtec_paulo",
-            password: "A95856762a!",
-            database: "drimtec_otlo",
-            debug: false,
-           
-          } );
+          
       
       
        
@@ -588,19 +577,7 @@ wss.on('connection', (ws) => {
                 tabtab.not04=not04a;
           console.log(result.affectedRows + " record(s) updated");
       
-          con.end(function (err, result) {
-            if (err) throw err;
-            console.log(" Conexao terminada");
-        
-          });
-          con = mysql.createConnection({
-            host: "185.90.59.52",
-            user: "drimtec_paulo",
-            password: "A95856762a!",
-            database: "drimtec_otlo",
-            debug: false,
-           
-          } );
+     
           contk = 1;
           do {
     
@@ -610,19 +587,7 @@ wss.on('connection', (ws) => {
         
             console.log(result.affectedRows + " record(s) updated");
         
-            con.end(function (err, result) {
-              if (err) throw err;
-              console.log(" Conexao terminada");
-          
-            });
-            con = mysql.createConnection({
-              host: "185.90.59.52",
-              user: "drimtec_paulo",
-              password: "A95856762a!",
-              database: "drimtec_otlo",
-              debug: false,
-             
-            } );
+   
         
         
           });
@@ -632,19 +597,7 @@ wss.on('connection', (ws) => {
         
             console.log(result.affectedRows + " record(s) updated");
         
-            con.end(function (err, result) {
-              if (err) throw err;
-              console.log(" Conexao terminada");
-          
-            });
-            con = mysql.createConnection({
-              host: "185.90.59.52",
-              user: "drimtec_paulo",
-              password: "A95856762a!",
-              database: "drimtec_otlo",
-              debug: false,
-             
-            } );
+    
         
         
           });
@@ -654,19 +607,7 @@ wss.on('connection', (ws) => {
         
             console.log(result.affectedRows + " record(s) updated");
         
-            con.end(function (err, result) {
-              if (err) throw err;
-              console.log(" Conexao terminada");
-          
-            });
-            con = mysql.createConnection({
-              host: "185.90.59.52",
-              user: "drimtec_paulo",
-              password: "A95856762a!",
-              database: "drimtec_otlo",
-              debug: false,
-             
-            } );
+     
         
         
           });
@@ -676,19 +617,7 @@ wss.on('connection', (ws) => {
         
             console.log(result.affectedRows + " record(s) updated");
         
-            con.end(function (err, result) {
-              if (err) throw err;
-              console.log(" Conexao terminada");
-          
-            });
-            con = mysql.createConnection({
-              host: "185.90.59.52",
-              user: "drimtec_paulo",
-              password: "A95856762a!",
-              database: "drimtec_otlo",
-              debug: false,
-             
-            } );
+     
         
         
           });
@@ -698,19 +627,7 @@ wss.on('connection', (ws) => {
         
             console.log(result.affectedRows + " record(s) updated");
         
-            con.end(function (err, result) {
-              if (err) throw err;
-              console.log(" Conexao terminada");
-          
-            });
-            con = mysql.createConnection({
-              host: "185.90.59.52",
-              user: "drimtec_paulo",
-              password: "A95856762a!",
-              database: "drimtec_otlo",
-              debug: false,
-             
-            } );
+       
         
         
           });
@@ -720,19 +637,7 @@ wss.on('connection', (ws) => {
         
             console.log(result.affectedRows + " record(s) updated");
         
-            con.end(function (err, result) {
-              if (err) throw err;
-              console.log(" Conexao terminada");
-          
-            });
-            con = mysql.createConnection({
-              host: "185.90.59.52",
-              user: "drimtec_paulo",
-              password: "A95856762a!",
-              database: "drimtec_otlo",
-              debug: false,
-             
-            } );
+           
         
         
           });
@@ -972,9 +877,32 @@ break;
             console.log("done2");
             switch(winner.prodit) {
               case 'Saude':
+                if (winner.segmet == "+1"){
+                   
+                  (tabtab['cosul'+contga][3])=(tabtab['cosul'+contga][3])+parseInt(winner.quantidade);
+              
+              }else      if (winner.segmet == "-1"){
+                 
+                (tabtab['cosul'+contga][3])=(tabtab['cosul'+contga][3])-parseInt(winner.quantidade);
+                
+           
+            
+            }else      if (winner.segmet == "+0"){
+                 
+              (tabtab['cosul'+contga][3])=(tabtab['cosul'+contga][3])+parseInt(winner.quantidade);
+              
+         
+          
+          }else      if (winner.segmet == "-0"){
+                 
+            (tabtab['cosul'+contga][3])=(tabtab['cosul'+contga][3])-parseInt(winner.quantidade);
+            
+       
+        
+        }
+              else console.log("Nao esta a filtrar novos / anulados em SAude");
 
-
-                (tabtab['cosul'+contga][3])=(tabtab['cosul'+contga][3])+parseInt(winner.quantidade);
+               
                 prod01a[0] = winner.nome1;
                 prod01a[1] = winner.nome2;
                 prod01a[2] = winner.cosul;
@@ -1000,19 +928,7 @@ break;
               
                   console.log(result.affectedRows + " record(s) updated");
               
-                  con.end(function (err, result) {
-                    if (err) throw err;
-                    console.log(" Conexao terminada");
-                
-                  });
-                  con = mysql.createConnection({
-                    host: "185.90.59.52",
-                    user: "drimtec_paulo",
-                    password: "A95856762a!",
-                    database: "drimtec_otlo",
-                    debug: false,
-                   
-                  } );
+           
               
               
                 });
@@ -1022,19 +938,7 @@ break;
               
                   console.log(result.affectedRows + " record(s) updated");
               
-                  con.end(function (err, result) {
-                    if (err) throw err;
-                    console.log(" Conexao terminada");
-                
-                  });
-                  con = mysql.createConnection({
-                    host: "185.90.59.52",
-                    user: "drimtec_paulo",
-                    password: "A95856762a!",
-                    database: "drimtec_otlo",
-                    debug: false,
-                   
-                  } );
+           
               
               
                 });
@@ -1044,19 +948,7 @@ break;
               
                   console.log(result.affectedRows + " record(s) updated");
               
-                  con.end(function (err, result) {
-                    if (err) throw err;
-                    console.log(" Conexao terminada");
-                
-                  });
-                  con = mysql.createConnection({
-                    host: "185.90.59.52",
-                    user: "drimtec_paulo",
-                    password: "A95856762a!",
-                    database: "drimtec_otlo",
-                    debug: false,
-                   
-                  } );
+         
               
               
                 });
@@ -1066,19 +958,7 @@ break;
               
                   console.log(result.affectedRows + " record(s) updated");
               
-                  con.end(function (err, result) {
-                    if (err) throw err;
-                    console.log(" Conexao terminada");
-                
-                  });
-                  con = mysql.createConnection({
-                    host: "185.90.59.52",
-                    user: "drimtec_paulo",
-                    password: "A95856762a!",
-                    database: "drimtec_otlo",
-                    debug: false,
-                   
-                  } );
+    
               
               
                 });
@@ -1088,19 +968,7 @@ break;
               
                   console.log(result.affectedRows + " record(s) updated");
               
-                  con.end(function (err, result) {
-                    if (err) throw err;
-                    console.log(" Conexao terminada");
-                
-                  });
-                  con = mysql.createConnection({
-                    host: "185.90.59.52",
-                    user: "drimtec_paulo",
-                    password: "A95856762a!",
-                    database: "drimtec_otlo",
-                    debug: false,
-                   
-                  } );
+      
               
               
                 });
@@ -1109,20 +977,7 @@ break;
                   if (err) throw err;
               
                   console.log(result.affectedRows + " record(s) updated");
-              
-                  con.end(function (err, result) {
-                    if (err) throw err;
-                    console.log(" Conexao terminada");
-                
-                  });
-                  con = mysql.createConnection({
-                    host: "185.90.59.52",
-                    user: "drimtec_paulo",
-                    password: "A95856762a!",
-                    database: "drimtec_otlo",
-                    debug: false,
-                   
-                  } );
+        
               
               
                 });
@@ -1139,19 +994,7 @@ break;
               
                   console.log(result.affectedRows + " record(s) updated");
               
-                  con.end(function (err, result) {
-                    if (err) throw err;
-                    console.log(" Conexao terminada");
-                
-                  });
-                  con = mysql.createConnection({
-                    host: "185.90.59.52",
-                    user: "drimtec_paulo",
-                    password: "A95856762a!",
-                    database: "drimtec_otlo",
-                    debug: false,
-                   
-                  } );
+                  
               
               
                 });
@@ -1160,7 +1003,7 @@ break;
                 
 
                 console.log("done3");
-                  if (winner.segme == 1){
+                  if (winner.segmet == "+1"){
                    
                     (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])+1;
                     
@@ -1170,30 +1013,76 @@ break;
                   
                       console.log(result.affectedRows + " record(s) updated");
                   
-                      con.end(function (err, result) {
-                        if (err) throw err;
-                        console.log(" Conexao terminada");
-                    
-                      });
-                      con = mysql.createConnection({
-                        host: "185.90.59.52",
-                        user: "drimtec_paulo",
-                        password: "A95856762a!",
-                        database: "drimtec_otlo",
-                        debug: false,
-                       
-                      } );
+                      
                   
                   
                     });
                 
-                }
+                }else      if (winner.segmet == "-1"){
+                   
+                  (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])-1;
+                  
+                  sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
+                  con.query(sql, function (err, result) {
+                    if (err) throw err;
                 
+                    console.log(result.affectedRows + " record(s) updated");
+                
+                    
+                
+                
+                  });
+              
+              }
+                else console.log("Nao altera segmetacao");
+
+                con.end(function (err, result) {
+                  if (err) throw err;
+                  console.log(" Conexao terminada");
+              
+                });
+                con = mysql.createConnection({
+                  host: "185.90.59.52",
+                  user: "drimtec_paulo",
+                  password: "A95856762a!",
+                  database: "drimtec_otlo",
+                  debug: false,
+                 
+                } );
+                 
+              
+             
               
              break;
 
             case 'PVF':
-        (tabtab['cosul'+contga][4])=(tabtab['cosul'+contga][4])+parseInt(winner.quantidade);
+              if (winner.segmet == "+1"){
+                   
+                (tabtab['cosul'+contga][4])=(tabtab['cosul'+contga][4])+parseInt(winner.quantidade);
+            
+            }else      if (winner.segmet == "-1"){
+               
+              (tabtab['cosul'+contga][4])=(tabtab['cosul'+contga][4])-parseInt(winner.quantidade);
+              
+         
+          
+          }else      if (winner.segmet == "+0"){
+               
+            (tabtab['cosul'+contga][4])=(tabtab['cosul'+contga][4])+parseInt(winner.quantidade);
+            
+       
+        
+        }else      if (winner.segmet == "-0"){
+               
+          (tabtab['cosul'+contga][4])=(tabtab['cosul'+contga][4])-parseInt(winner.quantidade);
+          
+     
+      
+      }
+            else console.log("Nao esta a filtrar novos / anulados em SAude");
+
+
+        
         prod01a[0] = winner.nome1;
         prod01a[1] = winner.nome2;
         prod01a[2] = winner.cosul;
@@ -1219,19 +1108,7 @@ break;
       
           console.log(result.affectedRows + " record(s) updated");
       
-          con.end(function (err, result) {
-            if (err) throw err;
-            console.log(" Conexao terminada");
-        
-          });
-          con = mysql.createConnection({
-            host: "185.90.59.52",
-            user: "drimtec_paulo",
-            password: "A95856762a!",
-            database: "drimtec_otlo",
-            debug: false,
-           
-          } );
+          
       
       
         });
@@ -1241,19 +1118,7 @@ break;
       
           console.log(result.affectedRows + " record(s) updated");
       
-          con.end(function (err, result) {
-            if (err) throw err;
-            console.log(" Conexao terminada");
-        
-          });
-          con = mysql.createConnection({
-            host: "185.90.59.52",
-            user: "drimtec_paulo",
-            password: "A95856762a!",
-            database: "drimtec_otlo",
-            debug: false,
-           
-          } );
+      
       
       
         });
@@ -1263,19 +1128,7 @@ break;
       
           console.log(result.affectedRows + " record(s) updated");
       
-          con.end(function (err, result) {
-            if (err) throw err;
-            console.log(" Conexao terminada");
-        
-          });
-          con = mysql.createConnection({
-            host: "185.90.59.52",
-            user: "drimtec_paulo",
-            password: "A95856762a!",
-            database: "drimtec_otlo",
-            debug: false,
-           
-          } );
+      
       
       
         });
@@ -1285,19 +1138,7 @@ break;
       
           console.log(result.affectedRows + " record(s) updated");
       
-          con.end(function (err, result) {
-            if (err) throw err;
-            console.log(" Conexao terminada");
-        
-          });
-          con = mysql.createConnection({
-            host: "185.90.59.52",
-            user: "drimtec_paulo",
-            password: "A95856762a!",
-            database: "drimtec_otlo",
-            debug: false,
-           
-          } );
+    
       
       
         });
@@ -1307,19 +1148,7 @@ break;
       
           console.log(result.affectedRows + " record(s) updated");
       
-          con.end(function (err, result) {
-            if (err) throw err;
-            console.log(" Conexao terminada");
-        
-          });
-          con = mysql.createConnection({
-            host: "185.90.59.52",
-            user: "drimtec_paulo",
-            password: "A95856762a!",
-            database: "drimtec_otlo",
-            debug: false,
-           
-          } );
+     
       
       
         });
@@ -1329,19 +1158,7 @@ break;
       
           console.log(result.affectedRows + " record(s) updated");
       
-          con.end(function (err, result) {
-            if (err) throw err;
-            console.log(" Conexao terminada");
-        
-          });
-          con = mysql.createConnection({
-            host: "185.90.59.52",
-            user: "drimtec_paulo",
-            password: "A95856762a!",
-            database: "drimtec_otlo",
-            debug: false,
-           
-          } );
+    
       
       
         });
@@ -1357,25 +1174,13 @@ break;
               
                   console.log(result.affectedRows + " record(s) updated");
               
-                  con.end(function (err, result) {
-                    if (err) throw err;
-                    console.log(" Conexao terminada");
-                
-                  });
-                  con = mysql.createConnection({
-                    host: "185.90.59.52",
-                    user: "drimtec_paulo",
-                    password: "A95856762a!",
-                    database: "drimtec_otlo",
-                    debug: false,
-                   
-                  } );
+          
               
               
                 });
 
         console.log("done3");
-          if (winner.segme == 1){
+          if (winner.segmet =="+1"){
             (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])+1;
             sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
                     con.query(sql, function (err, result) {
@@ -1383,29 +1188,71 @@ break;
                   
                       console.log(result.affectedRows + " record(s) updated");
                   
-                      con.end(function (err, result) {
-                        if (err) throw err;
-                        console.log(" Conexao terminada");
-                    
-                      });
-                      con = mysql.createConnection({
-                        host: "185.90.59.52",
-                        user: "drimtec_paulo",
-                        password: "A95856762a!",
-                        database: "drimtec_otlo",
-                        debug: false,
-                       
-                      } );
+              
                   
                   
                     });
-          }
+          }else      if (winner.segmet == "-1"){
+                   
+            (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])-1;
+            
+            sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
+            con.query(sql, function (err, result) {
+              if (err) throw err;
+          
+              console.log(result.affectedRows + " record(s) updated");
+          
+              
+          
+          
+            });
         
-      
+        }
+          else console.log("Nao altera segmetacao");
+        
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
      break;
 
-           case 'AP':
-            (tabtab['cosul'+contga][6])=(tabtab['cosul'+contga][6])+parseInt(winner.quantidade);
+           case 'Digital':
+            if (winner.segmet == "+1"){
+                   
+              (tabtab['cosul'+contga][6])=(tabtab['cosul'+contga][6])+parseInt(winner.quantidade);
+          
+          }else      if (winner.segmet == "-1"){
+             
+            (tabtab['cosul'+contga][6])=(tabtab['cosul'+contga][6])-parseInt(winner.quantidade);
+            
+       
+        
+        }else      if (winner.segmet == "+0"){
+             
+          (tabtab['cosul'+contga][6])=(tabtab['cosul'+contga][6])+parseInt(winner.quantidade);
+          
+     
+      
+      }else      if (winner.segmet == "-0"){
+             
+        (tabtab['cosul'+contga][6])=(tabtab['cosul'+contga][6])-parseInt(winner.quantidade);
+        
+   
+    
+    }
+          else console.log("Nao esta a filtrar novos / anulados em SAude");
+
+
+           
             prod01a[0] = winner.nome1;
             prod01a[1] = winner.nome2;
             prod01a[2] = winner.cosul;
@@ -1431,19 +1278,7 @@ break;
           
               console.log(result.affectedRows + " record(s) updated");
           
-              con.end(function (err, result) {
-                if (err) throw err;
-                console.log(" Conexao terminada");
-            
-              });
-              con = mysql.createConnection({
-                host: "185.90.59.52",
-                user: "drimtec_paulo",
-                password: "A95856762a!",
-                database: "drimtec_otlo",
-                debug: false,
-               
-              } );
+         
           
           
             });
@@ -1453,19 +1288,7 @@ break;
           
               console.log(result.affectedRows + " record(s) updated");
           
-              con.end(function (err, result) {
-                if (err) throw err;
-                console.log(" Conexao terminada");
-            
-              });
-              con = mysql.createConnection({
-                host: "185.90.59.52",
-                user: "drimtec_paulo",
-                password: "A95856762a!",
-                database: "drimtec_otlo",
-                debug: false,
-               
-              } );
+      
           
           
             });
@@ -1475,19 +1298,7 @@ break;
           
               console.log(result.affectedRows + " record(s) updated");
           
-              con.end(function (err, result) {
-                if (err) throw err;
-                console.log(" Conexao terminada");
-            
-              });
-              con = mysql.createConnection({
-                host: "185.90.59.52",
-                user: "drimtec_paulo",
-                password: "A95856762a!",
-                database: "drimtec_otlo",
-                debug: false,
-               
-              } );
+      
           
           
             });
@@ -1497,19 +1308,7 @@ break;
           
               console.log(result.affectedRows + " record(s) updated");
           
-              con.end(function (err, result) {
-                if (err) throw err;
-                console.log(" Conexao terminada");
-            
-              });
-              con = mysql.createConnection({
-                host: "185.90.59.52",
-                user: "drimtec_paulo",
-                password: "A95856762a!",
-                database: "drimtec_otlo",
-                debug: false,
-               
-              } );
+          
           
           
             });
@@ -1519,19 +1318,7 @@ break;
           
               console.log(result.affectedRows + " record(s) updated");
           
-              con.end(function (err, result) {
-                if (err) throw err;
-                console.log(" Conexao terminada");
-            
-              });
-              con = mysql.createConnection({
-                host: "185.90.59.52",
-                user: "drimtec_paulo",
-                password: "A95856762a!",
-                database: "drimtec_otlo",
-                debug: false,
-               
-              } );
+   
           
           
             });
@@ -1541,19 +1328,7 @@ break;
           
               console.log(result.affectedRows + " record(s) updated");
           
-              con.end(function (err, result) {
-                if (err) throw err;
-                console.log(" Conexao terminada");
-            
-              });
-              con = mysql.createConnection({
-                host: "185.90.59.52",
-                user: "drimtec_paulo",
-                password: "A95856762a!",
-                database: "drimtec_otlo",
-                debug: false,
-               
-              } );
+     
           
           
             });
@@ -1571,6 +1346,42 @@ break;
           
               console.log(result.affectedRows + " record(s) updated");
           
+        
+          
+          
+            });
+
+            console.log("done3");
+              if (winner.segmet == "+1"){
+                (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])+1;
+                sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
+                    con.query(sql, function (err, result) {
+                      if (err) throw err;
+                  
+                      console.log(result.affectedRows + " record(s) updated");
+                  
+            
+                  
+                  
+                    });
+              }else      if (winner.segmet == "-1"){
+                   
+                (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])-1;
+                
+                sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
+                con.query(sql, function (err, result) {
+                  if (err) throw err;
+              
+                  console.log(result.affectedRows + " record(s) updated");
+              
+                  
+              
+              
+                });
+            
+            }
+              else console.log("Nao altera segmetacao");
+            
               con.end(function (err, result) {
                 if (err) throw err;
                 console.log(" Conexao terminada");
@@ -1584,43 +1395,37 @@ break;
                 debug: false,
                
               } );
-          
-          
-            });
-
-            console.log("done3");
-              if (winner.segme == 1){
-                (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])+1;
-                sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
-                    con.query(sql, function (err, result) {
-                      if (err) throw err;
-                  
-                      console.log(result.affectedRows + " record(s) updated");
-                  
-                      con.end(function (err, result) {
-                        if (err) throw err;
-                        console.log(" Conexao terminada");
-                    
-                      });
-                      con = mysql.createConnection({
-                        host: "185.90.59.52",
-                        user: "drimtec_paulo",
-                        password: "A95856762a!",
-                        database: "drimtec_otlo",
-                        debug: false,
-                       
-                      } );
-                  
-                  
-                    });
-              }
-            
-          
          break;
 
 
          case 'Vida':
-          (tabtab['cosul'+contga][7])=(tabtab['cosul'+contga][7])+parseInt(winner.quantidade);
+          if (winner.segmet == "+1"){
+                   
+            (tabtab['cosul'+contga][7])=(tabtab['cosul'+contga][7])+parseInt(winner.quantidade);
+        
+        }else      if (winner.segmet == "-1"){
+           
+          (tabtab['cosul'+contga][7])=(tabtab['cosul'+contga][7])-parseInt(winner.quantidade);
+          
+     
+      
+      }else      if (winner.segmet == "+0"){
+           
+        (tabtab['cosul'+contga][7])=(tabtab['cosul'+contga][7])+parseInt(winner.quantidade);
+        
+   
+    
+    }else      if (winner.segmet == "-0"){
+           
+      (tabtab['cosul'+contga][7])=(tabtab['cosul'+contga][7])-parseInt(winner.quantidade);
+      
+ 
+  
+  }
+        else console.log("Nao esta a filtrar novos / anulados em SAude");
+
+
+         
           prod01a[0] = winner.nome1;
           prod01a[1] = winner.nome2;
           prod01a[2] = winner.cosul;
@@ -1646,19 +1451,7 @@ break;
         
             console.log(result.affectedRows + " record(s) updated");
         
-            con.end(function (err, result) {
-              if (err) throw err;
-              console.log(" Conexao terminada");
-          
-            });
-            con = mysql.createConnection({
-              host: "185.90.59.52",
-              user: "drimtec_paulo",
-              password: "A95856762a!",
-              database: "drimtec_otlo",
-              debug: false,
-             
-            } );
+        
         
         
           });
@@ -1668,19 +1461,7 @@ break;
         
             console.log(result.affectedRows + " record(s) updated");
         
-            con.end(function (err, result) {
-              if (err) throw err;
-              console.log(" Conexao terminada");
-          
-            });
-            con = mysql.createConnection({
-              host: "185.90.59.52",
-              user: "drimtec_paulo",
-              password: "A95856762a!",
-              database: "drimtec_otlo",
-              debug: false,
-             
-            } );
+         
         
         
           });
@@ -1690,19 +1471,7 @@ break;
         
             console.log(result.affectedRows + " record(s) updated");
         
-            con.end(function (err, result) {
-              if (err) throw err;
-              console.log(" Conexao terminada");
-          
-            });
-            con = mysql.createConnection({
-              host: "185.90.59.52",
-              user: "drimtec_paulo",
-              password: "A95856762a!",
-              database: "drimtec_otlo",
-              debug: false,
-             
-            } );
+      
         
         
           });
@@ -1712,19 +1481,7 @@ break;
         
             console.log(result.affectedRows + " record(s) updated");
         
-            con.end(function (err, result) {
-              if (err) throw err;
-              console.log(" Conexao terminada");
-          
-            });
-            con = mysql.createConnection({
-              host: "185.90.59.52",
-              user: "drimtec_paulo",
-              password: "A95856762a!",
-              database: "drimtec_otlo",
-              debug: false,
-             
-            } );
+  
         
         
           });
@@ -1734,19 +1491,7 @@ break;
         
             console.log(result.affectedRows + " record(s) updated");
         
-            con.end(function (err, result) {
-              if (err) throw err;
-              console.log(" Conexao terminada");
-          
-            });
-            con = mysql.createConnection({
-              host: "185.90.59.52",
-              user: "drimtec_paulo",
-              password: "A95856762a!",
-              database: "drimtec_otlo",
-              debug: false,
-             
-            } );
+ 
         
         
           });
@@ -1756,19 +1501,7 @@ break;
         
             console.log(result.affectedRows + " record(s) updated");
         
-            con.end(function (err, result) {
-              if (err) throw err;
-              console.log(" Conexao terminada");
-          
-            });
-            con = mysql.createConnection({
-              host: "185.90.59.52",
-              user: "drimtec_paulo",
-              password: "A95856762a!",
-              database: "drimtec_otlo",
-              debug: false,
-             
-            } );
+    
         
         
           });
@@ -1786,6 +1519,41 @@ break;
         
             console.log(result.affectedRows + " record(s) updated");
         
+    
+        
+        
+          });
+
+          console.log("done3");
+            if (winner.segmet == "+1"){
+              (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])+1;
+              sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
+                    con.query(sql, function (err, result) {
+                      if (err) throw err;
+                  
+                      console.log(result.affectedRows + " record(s) updated");
+                  
+             
+                  
+                  
+                    });
+            }else      if (winner.segmet == "-1"){
+                   
+              (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])-1;
+              
+              sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
+              con.query(sql, function (err, result) {
+                if (err) throw err;
+            
+                console.log(result.affectedRows + " record(s) updated");
+            
+                
+            
+            
+              });
+          
+          }
+            else console.log("Nao altera segmetacao");
             con.end(function (err, result) {
               if (err) throw err;
               console.log(" Conexao terminada");
@@ -1800,43 +1568,38 @@ break;
              
             } );
         
-        
-          });
-
-          console.log("done3");
-            if (winner.segme == 1){
-              (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])+1;
-              sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
-                    con.query(sql, function (err, result) {
-                      if (err) throw err;
-                  
-                      console.log(result.affectedRows + " record(s) updated");
-                  
-                      con.end(function (err, result) {
-                        if (err) throw err;
-                        console.log(" Conexao terminada");
-                    
-                      });
-                      con = mysql.createConnection({
-                        host: "185.90.59.52",
-                        user: "drimtec_paulo",
-                        password: "A95856762a!",
-                        database: "drimtec_otlo",
-                        debug: false,
-                       
-                      } );
-                  
-                  
-                    });
-            }
-          
-        
        break;
 
 
 
        case 'PPR':
-        (tabtab['cosul'+contga][8])=(tabtab['cosul'+contga][8])+parseInt(winner.quantidade);
+        if (winner.segmet == "+1"){
+                   
+          (tabtab['cosul'+contga][8])=(tabtab['cosul'+contga][8])+parseInt(winner.quantidade);
+      
+      }else      if (winner.segmet == "-1"){
+         
+        (tabtab['cosul'+contga][8])=(tabtab['cosul'+contga][8])-parseInt(winner.quantidade);
+        
+   
+    
+    }else      if (winner.segmet == "+0"){
+         
+      (tabtab['cosul'+contga][8])=(tabtab['cosul'+contga][8])+parseInt(winner.quantidade);
+      
+ 
+  
+  }else      if (winner.segmet == "-0"){
+         
+    (tabtab['cosul'+contga][8])=(tabtab['cosul'+contga][8])-parseInt(winner.quantidade);
+    
+
+
+}
+      else console.log("Nao esta a filtrar novos / anulados em SAude");
+
+
+       
         prod01a[0] = winner.nome1;
         prod01a[1] = winner.nome2;
         prod01a[2] = winner.cosul;
@@ -1862,19 +1625,7 @@ break;
       
           console.log(result.affectedRows + " record(s) updated");
       
-          con.end(function (err, result) {
-            if (err) throw err;
-            console.log(" Conexao terminada");
-        
-          });
-          con = mysql.createConnection({
-            host: "185.90.59.52",
-            user: "drimtec_paulo",
-            password: "A95856762a!",
-            database: "drimtec_otlo",
-            debug: false,
-           
-          } );
+     
       
       
         });
@@ -1884,19 +1635,7 @@ break;
       
           console.log(result.affectedRows + " record(s) updated");
       
-          con.end(function (err, result) {
-            if (err) throw err;
-            console.log(" Conexao terminada");
-        
-          });
-          con = mysql.createConnection({
-            host: "185.90.59.52",
-            user: "drimtec_paulo",
-            password: "A95856762a!",
-            database: "drimtec_otlo",
-            debug: false,
-           
-          } );
+  
       
       
         });
@@ -1906,19 +1645,7 @@ break;
       
           console.log(result.affectedRows + " record(s) updated");
       
-          con.end(function (err, result) {
-            if (err) throw err;
-            console.log(" Conexao terminada");
-        
-          });
-          con = mysql.createConnection({
-            host: "185.90.59.52",
-            user: "drimtec_paulo",
-            password: "A95856762a!",
-            database: "drimtec_otlo",
-            debug: false,
-           
-          } );
+     
       
       
         });
@@ -1928,19 +1655,7 @@ break;
       
           console.log(result.affectedRows + " record(s) updated");
       
-          con.end(function (err, result) {
-            if (err) throw err;
-            console.log(" Conexao terminada");
-        
-          });
-          con = mysql.createConnection({
-            host: "185.90.59.52",
-            user: "drimtec_paulo",
-            password: "A95856762a!",
-            database: "drimtec_otlo",
-            debug: false,
-           
-          } );
+    
       
       
         });
@@ -1950,19 +1665,7 @@ break;
       
           console.log(result.affectedRows + " record(s) updated");
       
-          con.end(function (err, result) {
-            if (err) throw err;
-            console.log(" Conexao terminada");
-        
-          });
-          con = mysql.createConnection({
-            host: "185.90.59.52",
-            user: "drimtec_paulo",
-            password: "A95856762a!",
-            database: "drimtec_otlo",
-            debug: false,
-           
-          } );
+    
       
       
         });
@@ -1972,19 +1675,6 @@ break;
       
           console.log(result.affectedRows + " record(s) updated");
       
-          con.end(function (err, result) {
-            if (err) throw err;
-            console.log(" Conexao terminada");
-        
-          });
-          con = mysql.createConnection({
-            host: "185.90.59.52",
-            user: "drimtec_paulo",
-            password: "A95856762a!",
-            database: "drimtec_otlo",
-            debug: false,
-           
-          } );
       
       
         });
@@ -2000,25 +1690,13 @@ break;
               
                   console.log(result.affectedRows + " record(s) updated");
               
-                  con.end(function (err, result) {
-                    if (err) throw err;
-                    console.log(" Conexao terminada");
-                
-                  });
-                  con = mysql.createConnection({
-                    host: "185.90.59.52",
-                    user: "drimtec_paulo",
-                    password: "A95856762a!",
-                    database: "drimtec_otlo",
-                    debug: false,
-                   
-                  } );
+             
               
               
                 });
 
         console.log("done3");
-          if (winner.segme == 1){
+          if (winner.segmet == "+1"){
             (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])+1;
             sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
                     con.query(sql, function (err, result) {
@@ -2026,31 +1704,75 @@ break;
                   
                       console.log(result.affectedRows + " record(s) updated");
                   
-                      con.end(function (err, result) {
-                        if (err) throw err;
-                        console.log(" Conexao terminada");
-                    
-                      });
-                      con = mysql.createConnection({
-                        host: "185.90.59.52",
-                        user: "drimtec_paulo",
-                        password: "A95856762a!",
-                        database: "drimtec_otlo",
-                        debug: false,
-                       
-                      } );
+                
                   
                   
                     });
-          }
+          }else      if (winner.segmet == "-1"){
+                   
+            (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])-1;
+            
+            sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
+            con.query(sql, function (err, result) {
+              if (err) throw err;
+          
+              console.log(result.affectedRows + " record(s) updated");
+          
+              
+          
+          
+            });
         
-      
+        }
+          else console.log("Nao altera segmetacao");
+        
+          con.end(function (err, result) {
+            if (err) throw err;
+            console.log(" Conexao terminada");
+        
+          });
+          con = mysql.createConnection({
+            host: "185.90.59.52",
+            user: "drimtec_paulo",
+            password: "A95856762a!",
+            database: "drimtec_otlo",
+            debug: false,
+           
+          } );
      break;
 
 
 
-     case 'PET':
-      (tabtab['cosul'+contga][5])=(tabtab['cosul'+contga][5])+parseInt(winner.quantidade);
+     case 'AP':
+      if (winner.segmet == "+1"){
+                   
+        (tabtab['cosul'+contga][5])=(tabtab['cosul'+contga][5])+parseInt(winner.quantidade);
+    
+    }else      if (winner.segmet == "-1"){
+       
+      (tabtab['cosul'+contga][5])=(tabtab['cosul'+contga][5])-parseInt(winner.quantidade);
+      
+ 
+  
+  }else      if (winner.segmet == "+0"){
+       
+    (tabtab['cosul'+contga][5])=(tabtab['cosul'+contga][5])+parseInt(winner.quantidade);
+    
+
+
+}else      if (winner.segmet == "-0"){
+       
+  (tabtab['cosul'+contga][5])=(tabtab['cosul'+contga][5])-parseInt(winner.quantidade);
+  
+
+
+}
+    else console.log("Nao esta a filtrar novos / anulados em SAude");
+
+
+
+
+     
       prod01a[0] = winner.nome1;
       prod01a[1] = winner.nome2;
       prod01a[2] = winner.cosul;
@@ -2077,19 +1799,7 @@ break;
     
         console.log(result.affectedRows + " record(s) updated");
     
-        con.end(function (err, result) {
-          if (err) throw err;
-          console.log(" Conexao terminada");
-      
-        });
-        con = mysql.createConnection({
-          host: "185.90.59.52",
-          user: "drimtec_paulo",
-          password: "A95856762a!",
-          database: "drimtec_otlo",
-          debug: false,
-         
-        } );
+
     
     
       });
@@ -2099,19 +1809,7 @@ break;
     
         console.log(result.affectedRows + " record(s) updated");
     
-        con.end(function (err, result) {
-          if (err) throw err;
-          console.log(" Conexao terminada");
-      
-        });
-        con = mysql.createConnection({
-          host: "185.90.59.52",
-          user: "drimtec_paulo",
-          password: "A95856762a!",
-          database: "drimtec_otlo",
-          debug: false,
-         
-        } );
+    
     
     
       });
@@ -2121,19 +1819,7 @@ break;
     
         console.log(result.affectedRows + " record(s) updated");
     
-        con.end(function (err, result) {
-          if (err) throw err;
-          console.log(" Conexao terminada");
-      
-        });
-        con = mysql.createConnection({
-          host: "185.90.59.52",
-          user: "drimtec_paulo",
-          password: "A95856762a!",
-          database: "drimtec_otlo",
-          debug: false,
-         
-        } );
+   
     
     
       });
@@ -2143,19 +1829,7 @@ break;
     
         console.log(result.affectedRows + " record(s) updated");
     
-        con.end(function (err, result) {
-          if (err) throw err;
-          console.log(" Conexao terminada");
-      
-        });
-        con = mysql.createConnection({
-          host: "185.90.59.52",
-          user: "drimtec_paulo",
-          password: "A95856762a!",
-          database: "drimtec_otlo",
-          debug: false,
-         
-        } );
+ 
     
     
       });
@@ -2165,19 +1839,7 @@ break;
     
         console.log(result.affectedRows + " record(s) updated");
     
-        con.end(function (err, result) {
-          if (err) throw err;
-          console.log(" Conexao terminada");
-      
-        });
-        con = mysql.createConnection({
-          host: "185.90.59.52",
-          user: "drimtec_paulo",
-          password: "A95856762a!",
-          database: "drimtec_otlo",
-          debug: false,
-         
-        } );
+
     
     
       });
@@ -2187,19 +1849,7 @@ break;
     
         console.log(result.affectedRows + " record(s) updated");
     
-        con.end(function (err, result) {
-          if (err) throw err;
-          console.log(" Conexao terminada");
-      
-        });
-        con = mysql.createConnection({
-          host: "185.90.59.52",
-          user: "drimtec_paulo",
-          password: "A95856762a!",
-          database: "drimtec_otlo",
-          debug: false,
-         
-        } );
+ 
     
     
       });
@@ -2215,25 +1865,13 @@ break;
               
                   console.log(result.affectedRows + " record(s) updated");
               
-                  con.end(function (err, result) {
-                    if (err) throw err;
-                    console.log(" Conexao terminada");
-                
-                  });
-                  con = mysql.createConnection({
-                    host: "185.90.59.52",
-                    user: "drimtec_paulo",
-                    password: "A95856762a!",
-                    database: "drimtec_otlo",
-                    debug: false,
-                   
-                  } );
+        
               
               
                 });
 
       console.log("done3");
-        if (winner.segme == 1){
+        if (winner.segmet == "+1"){
           (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])+1;
           sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
                     con.query(sql, function (err, result) {
@@ -2241,24 +1879,40 @@ break;
                   
                       console.log(result.affectedRows + " record(s) updated");
                   
-                      con.end(function (err, result) {
-                        if (err) throw err;
-                        console.log(" Conexao terminada");
-                    
-                      });
-                      con = mysql.createConnection({
-                        host: "185.90.59.52",
-                        user: "drimtec_paulo",
-                        password: "A95856762a!",
-                        database: "drimtec_otlo",
-                        debug: false,
-                       
-                      } );
+               
                   
                   
                     });
-        }
+        }else      if (winner.segmet == "-1"){
+                   
+          (tabtab['cosul'+contga][9])=(tabtab['cosul'+contga][9])-1;
+          
+          sql = "UPDATE tabtab SET numero7 = ('"+(tabtab['cosul'+contga][9])+"') WHERE pos = ('"+contgaw+"')";
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+        
+            console.log(result.affectedRows + " record(s) updated");
+        
+            
+        
+        
+          });
       
+      }
+        else console.log("Nao altera segmetacao");
+        con.end(function (err, result) {
+          if (err) throw err;
+          console.log(" Conexao terminada");
+      
+        });
+        con = mysql.createConnection({
+          host: "185.90.59.52",
+          user: "drimtec_paulo",
+          password: "A95856762a!",
+          database: "drimtec_otlo",
+          debug: false,
+         
+        } );
     
    break;
 
@@ -2275,7 +1929,7 @@ break;
     }
     contga+=1;  
     contgaw+=1;
-  }while (contga<15);
+  }while (contga<16);
     
       
     
