@@ -28,6 +28,7 @@ var tabtab = {
   cosul13:['GTU324','Ana','Batista',0,0,0,0,0,0,0,0,0,0,0,0,0],
   cosul14:['MNM347','Pedro','Canelas',0,0,0,0,0,0,0,0,0,0,0,0,0],
   cosul15:['SDM347','Pedro','Canelas',0,0,0,0,0,0,0,0,0,0,0,0,0],
+  cosul16:['FTY247','Pedro','Canelas',0,0,0,0,0,0,0,0,0,0,0,0,0],
   reclame1: "Bem Vindos Beta Testers",
   reclame2: "...",
   prod01:['nome1','nome2','ghg323',2,'455495',Math.round(d.getTime() / hour),'saude'],
@@ -271,7 +272,7 @@ con.query("SELECT * FROM ultiprod", function (err, result, fields) {
     cont6 +=1;
     cont7 +=1;  
      }
-     while (cont6<17);
+     while (cont6<18);
      cont6=2;
      cont7=1;
      
@@ -842,6 +843,14 @@ break;
           break;
           case tabtab.cosul15[0]:{
             lg.cosul="cosul15";
+            lg.Valido="2";
+            console.log(lg.Valido)
+            console.log("login Validado")
+            wss.clients.forEach((client) =>  client.send(JSON.stringify(lg)));
+          }
+          break;
+          case tabtab.cosul16[0]:{
+            lg.cosul="cosul16";
             lg.Valido="2";
             console.log(lg.Valido)
             console.log("login Validado")
@@ -1840,16 +1849,12 @@ break;
         console.log(result.affectedRows + " record(s) updated");
     
 
-    
-    
       });
       sql = "UPDATE ultiprod SET texto4= ('"+(tabtab['prod0'+contk][6])+"') WHERE pos = ('"+contk+"')";
       con.query(sql, function (err, result) {
         if (err) throw err;
     
         console.log(result.affectedRows + " record(s) updated");
-    
- 
     
     
       });
