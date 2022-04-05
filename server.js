@@ -1934,7 +1934,7 @@ break;
     }
     contga+=1;  
     contgaw+=1;
-  }while (contga<16);
+  }while (contga<17);
     
       
     
