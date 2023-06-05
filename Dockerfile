@@ -29,5 +29,5 @@ COPY . .
 # Expose the port
 EXPOSE 3000
 
-CMD [ "node", "app.js" ]
+
 ENTRYPOINT ["/usr/bin/node", "/root/server.js"]
