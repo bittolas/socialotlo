@@ -10,7 +10,7 @@ WORKDIR /home/server
 
 
 RUN npm install -g json-server
-
+RUN npm install -g ws
 
 
 
