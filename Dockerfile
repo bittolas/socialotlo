@@ -1,15 +1,20 @@
+FROM node:latest
+
+
+
+
 # Use Node.js v14
 ENV REFRESHED_AT 2015-01-19
-FROM node:14
+
 
 # Create app directory
 WORKDIR /usr/src/app
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
-COPY package*.json ./
+COPY package.json ./
 
-RUN npm install
+RUN npm install -g json-server
 
 
 RUN apt-get update
